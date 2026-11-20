@@ -294,6 +294,14 @@ export default function Home() {
                   )}
                 </div>
               ))}
+              <div className="rounded-xl border border-line bg-surface p-5">
+                <h3 className="font-semibold">Interests</h3>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {interests.map((i) => (
+                    <Tag key={i}>{i}</Tag>
+                  ))}
+                </div>
+              </div>
             </div>
             <div className="space-y-6">
               {leadership.map((l) => (
@@ -307,26 +315,16 @@ export default function Home() {
                   </ul>
                 </div>
               ))}
-              <div className="grid gap-6 sm:grid-cols-2">
-                <div className="rounded-xl border border-line bg-surface p-5">
-                  <h3 className="text-sm font-semibold">Languages</h3>
-                  <ul className="mt-3 space-y-1.5 text-sm">
-                    {languages.map((l) => (
-                      <li key={l.name} className="flex justify-between gap-2">
-                        <span>{l.name}</span>
-                        <span className="text-muted">{l.level}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="rounded-xl border border-line bg-surface p-5">
-                  <h3 className="text-sm font-semibold">Interests</h3>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {interests.map((i) => (
-                      <Tag key={i}>{i}</Tag>
-                    ))}
-                  </div>
-                </div>
+              <div className="rounded-xl border border-line bg-surface p-5">
+                <h3 className="font-semibold">Languages</h3>
+                <ul className="mt-3 divide-y divide-line text-sm">
+                  {languages.map((l) => (
+                    <li key={l.name} className="flex justify-between gap-2 py-2">
+                      <span>{l.name}</span>
+                      <span className="text-muted">{l.level}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
