@@ -83,7 +83,6 @@ export type Project = {
   description: string;
   stack: string[];
   link?: string;
-  featured?: boolean;
 };
 
 const repo = (name: string) => `https://github.com/MouhamadouAbdoulayeSow/${name}`;
@@ -92,78 +91,64 @@ export const projects: Project[] = [
   {
     title: "LMS Universities",
     domains: ["Software", "Cloud & DevOps", "Security", "AI"],
-    description:
-      "E-learning platform for EPT, deployed online. Spring Boot microservices behind a Spring Cloud gateway, with Eureka, Config Server, Kafka events and a PostgreSQL database per service. JWT authentication with three roles, sandboxed code execution, video meetings, real-time notifications, gamification and a RAG chatbot. A GitHub Actions pipeline rebuilds only the changed services and deploys them to AWS EC2; a Jenkins pipeline pushes images to Amazon ECR. An improved version, EduMarket, adds a course marketplace with orders and recommendations.",
-    stack: ["Java", "Spring Boot", "Spring Cloud", "Kafka", "PostgreSQL", "pgvector", "Redis", "React", "Docker", "GitHub Actions", "Jenkins", "AWS EC2"],
+    description: "E-learning platform for EPT built with Spring Boot microservices and Kafka, deployed to AWS through CI/CD.",
+    stack: ["Spring Boot", "Kafka", "Docker", "AWS EC2"],
     link: repo("LMS_universities"),
-    featured: true,
   },
   {
-    title: "Hybrid Recommendation System",
+    title: "Recommendation System",
     domains: ["Data", "Software"],
-    description:
-      "E-commerce recommender combining a content-based model, TF-IDF and cosine similarity, with item-to-item collaborative filtering trained on user events stored in MongoDB. Exposed through a Django REST API with an admin dashboard for KPIs, recommendation performance and model retraining.",
-    stack: ["Python", "scikit-learn", "pandas", "Django REST", "MongoDB", "PostgreSQL", "Celery", "Redis", "React"],
+    description: "E-commerce recommender combining content-based and collaborative filtering, served through a Django API.",
+    stack: ["Python", "scikit-learn", "Django REST", "MongoDB"],
     link: repo("Projet_Transversal_DIC_1"),
-    featured: true,
   },
   {
-    title: "LLM Deployment on Kubernetes",
+    title: "LLM on Kubernetes",
     domains: ["Cloud & DevOps", "Security"],
-    description:
-      "Deployed Ollama and Open WebUI with Docker Compose, then on Kubernetes with Kustomize: persistent volume, Ingress, NetworkPolicy isolation, resource limits and a horizontal autoscaler tested with a load generator.",
-    stack: ["Kubernetes", "Minikube", "Kustomize", "Docker Compose", "Ingress", "NetworkPolicy", "HPA", "Ollama"],
+    description: "Deployed an LLM on Kubernetes with Ingress, network policies and autoscaling.",
+    stack: ["Kubernetes", "Kustomize", "Docker", "HPA"],
     link: repo("LLM_Deployment_Devops_Project"),
-    featured: true,
   },
   {
-    title: "AWS Infrastructure as Code with Terraform",
+    title: "AWS Infrastructure with Terraform",
     domains: ["Cloud & DevOps"],
-    description:
-      "S3 and DynamoDB infrastructure written as reusable Terraform modules with validated variables, separate dev and prod environments and native Terraform tests, run against Floci, a local AWS emulator.",
-    stack: ["Terraform", "AWS S3", "DynamoDB", "Floci", "IaC"],
+    description: "Reusable Terraform modules for S3 and DynamoDB, with dev and prod environments and tests.",
+    stack: ["Terraform", "AWS S3", "DynamoDB"],
     link: repo("LLM_Deployment_Devops_Project"),
-    featured: true,
   },
   {
-    title: "MS Platform – Secure Auth Service",
+    title: "MS Platform – Auth Service",
     domains: ["Software", "Security"],
-    description:
-      "Spring Boot authentication and user-management service: JWT access and refresh tokens, token revocation with a Redis blacklist, role-based access with Spring Security, password reset by e-mail, Flyway migrations, Kafka configuration and OpenAPI documentation.",
-    stack: ["Java", "Spring Boot", "Spring Security", "JWT", "Redis", "Kafka", "PostgreSQL", "Flyway"],
+    description: "Authentication service with JWT access and refresh tokens, role-based access and token revocation.",
+    stack: ["Spring Security", "JWT", "Redis", "PostgreSQL"],
     link: repo("MS_Platform"),
-    featured: true,
   },
   {
-    title: "Phone Number Authentication API",
+    title: "Phone Auth API",
     domains: ["Security", "Software"],
-    description:
-      "REST API where users sign up and reset their password with SMS one-time codes sent through Twilio Verify. Custom user model keyed by phone number, token authentication and token revocation on logout.",
-    stack: ["Python", "Django REST", "Twilio Verify", "Token auth"],
+    description: "Sign-up and password reset with SMS one-time codes sent through Twilio.",
+    stack: ["Django REST", "Twilio Verify", "Token auth"],
     link: repo("auth_Tel"),
   },
   {
     title: "ShopVocal",
     domains: ["Software", "AI"],
-    description:
-      "Mobile sales, stock and customer-debt management app for Senegalese retailers, driven by voice. Speech is transcribed with Whisper and parsed by an LLM fallback chain. FastAPI backend on PostgreSQL with JWT authentication and secure token storage on the device.",
-    stack: ["Flutter", "FastAPI", "PostgreSQL", "JWT", "Whisper", "LLM APIs"],
+    description: "Voice-driven mobile app for retailers to manage sales, stock and customers.",
+    stack: ["Flutter", "FastAPI", "PostgreSQL", "Whisper"],
     link: repo("ShopVocal"),
   },
   {
     title: "SenPanier Bio",
     domains: ["Software"],
-    description:
-      "Marketplace for organic products in Senegal with dashboards for producers, processors and suppliers, a cart and checkout. JWT authentication on PostgreSQL and business data in MongoDB.",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "PostgreSQL", "MongoDB"],
+    description: "Marketplace for organic products in Senegal, with dashboards for producers and suppliers.",
+    stack: ["Next.js", "TypeScript", "MongoDB"],
     link: repo("SenPanierFront"),
   },
   {
     title: "Parking Space Counter",
     domains: ["AI"],
-    description:
-      "Flask web app that counts free parking spaces in a video: each spot is located with a mask, described with VGG16 features and classified as free or occupied by an SVM.",
-    stack: ["Python", "Flask", "OpenCV", "TensorFlow", "scikit-learn"],
+    description: "Counts free parking spaces in a video with VGG16 features and an SVM classifier.",
+    stack: ["Python", "OpenCV", "TensorFlow", "Flask"],
     link: repo("FlaskProject_CV"),
   },
   {

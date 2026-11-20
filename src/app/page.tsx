@@ -185,18 +185,13 @@ export default function Home() {
 
         {/* Projects */}
         <Section id="projects" kicker="03 · Projects" title="Things I have built">
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {sortedProjects.map((p) => (
               <article
                 key={p.title}
-                className={`flex flex-col rounded-xl border bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-lg ${
-                  p.featured ? "border-accent/50" : "border-line"
-                }`}
+                className="flex flex-col rounded-xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.domains.join(" · ")}</span>
-                  {p.featured && <span className="shrink-0 whitespace-nowrap text-[11px] font-medium text-muted">★ Featured</span>}
-                </div>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.domains.join(" · ")}</span>
                 <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
