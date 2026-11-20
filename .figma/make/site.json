@@ -1,0 +1,10 @@
+{
+  "description": "A project setup assistant that bootstraps imported Figma projects and verifies deployment and preview readiness, helping teams prepare initial releases.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
