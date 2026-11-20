@@ -27,7 +27,7 @@ const nav = [
 
 const categoryOrder = ["Software", "Data", "Cloud & DevOps", "Security", "AI"];
 const sortedProjects = [...projects].sort(
-  (a, b) => categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category),
+  (a, b) => categoryOrder.indexOf(a.domains[0]) - categoryOrder.indexOf(b.domains[0]),
 );
 
 export default function Home() {
@@ -194,8 +194,8 @@ export default function Home() {
                 }`}
               >
                 <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.category}</span>
-                  {p.featured && <span className="text-[11px] font-medium text-muted">★ Featured</span>}
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.domains.join(" · ")}</span>
+                  {p.featured && <span className="shrink-0 whitespace-nowrap text-[11px] font-medium text-muted">★ Featured</span>}
                 </div>
                 <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>

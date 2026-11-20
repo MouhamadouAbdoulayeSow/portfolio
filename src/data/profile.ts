@@ -8,7 +8,7 @@ export const profile = {
     "Full-stack and cloud engineer at Atos and final-year engineering student. I build secure, data-driven software and automate how it is shipped to the cloud. My goal is to become a Cloud Security and Solutions Architect.",
   location: "Thiès / Dakar, Senegal",
   email: "sowma@ept.edu.sn",
-  github: "https://github.com/cloudDevML",
+  github: "https://github.com/MouhamadouAbdoulayeSow",
   linkedin: "https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/",
   cv: "/CV_Mouhamadou_Abdoulaye_SOW.pdf",
   focus: ["Software Engineering", "Data Engineering", "Cloud & DevOps", "Security", "Java · Python"],
@@ -75,94 +75,103 @@ export const experiences: Experience[] = [
   },
 ];
 
+export type Domain = "Software" | "Data" | "Cloud & DevOps" | "Security" | "AI";
+
 export type Project = {
   title: string;
-  category: "Software" | "Data" | "Cloud & DevOps" | "Security" | "AI";
+  domains: Domain[];
   description: string;
   stack: string[];
   link?: string;
   featured?: boolean;
 };
 
+const repo = (name: string) => `https://github.com/MouhamadouAbdoulayeSow/${name}`;
+
 export const projects: Project[] = [
   {
     title: "LMS Universities",
-    category: "Software",
+    domains: ["Software", "Cloud & DevOps", "Security", "AI"],
     description:
-      "Smart e-learning platform for EPT with admin, teacher and student spaces. 8 Spring Boot microservices communicate through Kafka events behind a secured API gateway, with Keycloak single sign-on, OAuth2/JWT and role-based access control. It adds sandboxed code execution with Judge0, real-time notifications, gamification and a RAG-based AI assistant. An improved version adds a course marketplace with orders and AI-based recommendations, shipped with Docker and a CI/CD pipeline.",
-    stack: ["Java", "Spring Boot", "Spring Cloud", "Kafka", "PostgreSQL", "MongoDB", "Keycloak", "React", "pgvector", "Docker", "CI/CD"],
+      "E-learning platform for EPT, deployed online. Spring Boot microservices behind a Spring Cloud gateway, with Eureka, Config Server, Kafka events and a PostgreSQL database per service. JWT authentication with three roles, sandboxed code execution, video meetings, real-time notifications, gamification and a RAG chatbot. A GitHub Actions pipeline rebuilds only the changed services and deploys them to AWS EC2; a Jenkins pipeline pushes images to Amazon ECR. An improved version, EduMarket, adds a course marketplace with orders and recommendations.",
+    stack: ["Java", "Spring Boot", "Spring Cloud", "Kafka", "PostgreSQL", "pgvector", "Redis", "React", "Docker", "GitHub Actions", "Jenkins", "AWS EC2"],
+    link: repo("LMS_universities"),
     featured: true,
   },
   {
-    title: "ShopVocal",
-    category: "Software",
+    title: "Hybrid Recommendation System",
+    domains: ["Data", "Software"],
     description:
-      "Mobile sales and stock management app for small retailers, with an AI voice assistant. FastAPI backend on PostgreSQL, JWT authentication and secure token storage on the device.",
-    stack: ["FastAPI", "Python", "PostgreSQL", "JWT", "Mobile"],
-  },
-  {
-    title: "SenPanier Bio",
-    category: "Software",
-    description:
-      "Marketplace for organic products in Senegal with user profiles, catalogue, cart and orders, built on a Saleor GraphQL backend.",
-    stack: ["React", "TypeScript", "Node.js", "Saleor GraphQL", "PostgreSQL", "Docker"],
-  },
-  {
-    title: "MS Platform",
-    category: "Data",
-    description:
-      "Event-driven backend where services exchange data through Kafka streams, with Redis caching, service discovery, centralised configuration and separate dev and prod profiles.",
-    stack: ["Spring Cloud", "Kafka", "Redis", "PostgreSQL", "Docker"],
+      "E-commerce recommender combining a content-based model, TF-IDF and cosine similarity, with item-to-item collaborative filtering trained on user events stored in MongoDB. Exposed through a Django REST API with an admin dashboard for KPIs, recommendation performance and model retraining.",
+    stack: ["Python", "scikit-learn", "pandas", "Django REST", "MongoDB", "PostgreSQL", "Celery", "Redis", "React"],
+    link: repo("Projet_Transversal_DIC_1"),
     featured: true,
-  },
-  {
-    title: "Recommendation System",
-    category: "Data",
-    description:
-      "E-commerce recommendation engine using collaborative and content-based filtering on user behaviour data, exposed through a REST API to a web front end.",
-    stack: ["Python", "scikit-learn", "PostgreSQL", "REST APIs"],
   },
   {
     title: "LLM Deployment on Kubernetes",
-    category: "Cloud & DevOps",
+    domains: ["Cloud & DevOps", "Security"],
     description:
-      "Deployed a large language model first with Docker Compose, then on Kubernetes with persistent storage, Ingress, NetworkPolicy isolation and autoscaling.",
-    stack: ["Docker Compose", "Kubernetes", "Minikube", "Ingress", "NetworkPolicy", "HPA"],
+      "Deployed Ollama and Open WebUI with Docker Compose, then on Kubernetes with Kustomize: persistent volume, Ingress, NetworkPolicy isolation, resource limits and a horizontal autoscaler tested with a load generator.",
+    stack: ["Kubernetes", "Minikube", "Kustomize", "Docker Compose", "Ingress", "NetworkPolicy", "HPA", "Ollama"],
+    link: repo("LLM_Deployment_Devops_Project"),
     featured: true,
   },
   {
     title: "AWS Infrastructure as Code with Terraform",
-    category: "Cloud & DevOps",
+    domains: ["Cloud & DevOps"],
     description:
-      "S3 and DynamoDB infrastructure written as reusable Terraform modules, with separate dev and prod environments and Terraform tests, run against a local AWS emulator.",
-    stack: ["Terraform", "AWS S3", "DynamoDB", "IaC"],
+      "S3 and DynamoDB infrastructure written as reusable Terraform modules with validated variables, separate dev and prod environments and native Terraform tests, run against Floci, a local AWS emulator.",
+    stack: ["Terraform", "AWS S3", "DynamoDB", "Floci", "IaC"],
+    link: repo("LLM_Deployment_Devops_Project"),
     featured: true,
   },
   {
-    title: "Raft Consensus Algorithm",
-    category: "Cloud & DevOps",
+    title: "MS Platform – Secure Auth Service",
+    domains: ["Software", "Security"],
     description:
-      "Implementation of leader election and log replication across containerised nodes to study fault tolerance and consistency in distributed systems.",
-    stack: ["Go", "Python", "Docker", "etcd"],
+      "Spring Boot authentication and user-management service: JWT access and refresh tokens, token revocation with a Redis blacklist, role-based access with Spring Security, password reset by e-mail, Flyway migrations, Kafka configuration and OpenAPI documentation.",
+    stack: ["Java", "Spring Boot", "Spring Security", "JWT", "Redis", "Kafka", "PostgreSQL", "Flyway"],
+    link: repo("MS_Platform"),
+    featured: true,
   },
   {
-    title: "Automated CI/CD Pipeline",
-    category: "Cloud & DevOps",
-    description: "GitHub Actions pipeline that builds, tests and publishes Docker images for Java services on every push.",
-    stack: ["GitHub Actions", "Maven", "Docker"],
+    title: "Phone Number Authentication API",
+    domains: ["Security", "Software"],
+    description:
+      "REST API where users sign up and reset their password with SMS one-time codes sent through Twilio Verify. Custom user model keyed by phone number, token authentication and token revocation on logout.",
+    stack: ["Python", "Django REST", "Twilio Verify", "Token auth"],
+    link: repo("auth_Tel"),
+  },
+  {
+    title: "ShopVocal",
+    domains: ["Software", "AI"],
+    description:
+      "Mobile sales, stock and customer-debt management app for Senegalese retailers, driven by voice. Speech is transcribed with Whisper and parsed by an LLM fallback chain. FastAPI backend on PostgreSQL with JWT authentication and secure token storage on the device.",
+    stack: ["Flutter", "FastAPI", "PostgreSQL", "JWT", "Whisper", "LLM APIs"],
+    link: repo("ShopVocal"),
+  },
+  {
+    title: "SenPanier Bio",
+    domains: ["Software"],
+    description:
+      "Marketplace for organic products in Senegal with dashboards for producers, processors and suppliers, a cart and checkout. JWT authentication on PostgreSQL and business data in MongoDB.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Zustand", "PostgreSQL", "MongoDB"],
+    link: repo("SenPanierFront"),
   },
   {
     title: "Parking Space Counter",
-    category: "AI",
+    domains: ["AI"],
     description:
-      "Containerised real-time computer-vision service that processes live video streams to detect and count free parking spaces.",
-    stack: ["Python", "OpenCV", "PyTorch", "Docker"],
+      "Flask web app that counts free parking spaces in a video: each spot is located with a mask, described with VGG16 features and classified as free or occupied by an SVM.",
+    stack: ["Python", "Flask", "OpenCV", "TensorFlow", "scikit-learn"],
+    link: repo("FlaskProject_CV"),
   },
   {
     title: "Plant Disease Detection",
-    category: "AI",
+    domains: ["AI", "Software"],
     description: "Deep-learning image classifier for plant diseases, served through a Django REST API.",
-    stack: ["Python", "PyTorch", "Django"],
+    stack: ["Python", "PyTorch", "Django REST"],
+    link: repo("planteDiseaseDetection"),
   },
 ];
 
@@ -179,8 +188,8 @@ export const skills: { group: string; items: string[]; core?: string[] }[] = [
   },
   {
     group: "Cloud & DevOps",
-    items: ["AWS EC2 & S3", "Docker", "Docker Compose", "Portainer", "GitHub Actions", "CI/CD", "Kubernetes", "Terraform", "Linux", "Bash", "Git", "Raft / etcd"],
-    core: ["AWS EC2 & S3", "Docker", "Kubernetes", "Terraform"],
+    items: ["AWS EC2, S3 & ECR", "Docker", "Docker Compose", "Portainer", "GitHub Actions", "Jenkins", "CI/CD", "Kubernetes", "Kustomize", "Terraform", "Linux", "Bash", "Git"],
+    core: ["AWS EC2, S3 & ECR", "Docker", "Kubernetes", "Terraform"],
   },
   {
     group: "Security",
