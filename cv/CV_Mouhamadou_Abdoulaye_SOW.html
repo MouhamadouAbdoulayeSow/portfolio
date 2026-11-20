@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CV – Mouhamadou Abdoulaye SOW</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --navy:#14304D; --teal:#0E8388; --teal-soft:#E6F2F2; --side:#F3F6F8;
+    --text:#26323D; --muted:#66727D; --rule:#D5E0E3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: "Noto Sans", "Ubuntu Sans", Arial, sans-serif; color: var(--text); font-size: 8.7pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; display: grid; grid-template-columns: 64mm 1fr; grid-template-rows: auto 1fr; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  /* Header */
+  header { grid-column: 1 / -1; background: var(--navy); color: #fff; padding: 9mm 12mm 7mm; position: relative; }
+  header::after { content:""; position:absolute; left:0; right:0; bottom:0; height:2.2mm; background: var(--teal); }
+  header h1 { margin: 0; font-family: "Ubuntu Sans", "Noto Sans", sans-serif; font-size: 25pt; font-weight: 700; letter-spacing: .4px; }
+  header .role { margin-top: 1.5mm; font-size: 11pt; color: #BFE3E3; font-weight: 500; }
+  header .tags { margin-top: 3mm; display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  header .tags span { border: 1px solid rgba(255,255,255,.35); border-radius: 10px; padding: .5mm 2.6mm; font-size: 8pt; color: #fff; }
+  .mini-header { grid-column: 1 / -1; background: var(--navy); color:#fff; padding: 4mm 12mm; font-family: "Ubuntu Sans", sans-serif; font-size: 10.5pt; display:flex; justify-content: space-between; position: relative; }
+  .mini-header::after { content:""; position:absolute; left:0; right:0; bottom:0; height:1.4mm; background: var(--teal); }
+  .mini-header span:last-child { color:#BFE3E3; font-size: 9pt; }
+
+  /* Sidebar */
+  aside { background: var(--side); padding: 7mm 6mm 6mm 8mm; border-right: 1px solid var(--rule); }
+  aside h3 { font-family: "Ubuntu Sans", sans-serif; color: var(--navy); font-size: 9.6pt; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 2mm; padding-bottom: 1mm; border-bottom: 1.4px solid var(--teal); }
+  aside section { margin-bottom: 5.5mm; }
+  .contact-line { display: flex; gap: 2mm; align-items: flex-start; margin-bottom: 1.6mm; word-break: break-word; font-size: 7.9pt; }
+  .contact-line svg { flex: 0 0 auto; width: 3.4mm; height: 3.4mm; margin-top: .5mm; fill: var(--teal); }
+  .contact-line a { color: var(--text); text-decoration: none; }
+  .skill-group { margin-bottom: 2.6mm; }
+  .skill-group b { display:block; color: var(--navy); font-size: 8.4pt; margin-bottom: .8mm; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.1mm; }
+  .chips span { background: #fff; border: 1px solid var(--rule); border-radius: 3px; padding: .2mm 1.6mm; font-size: 7.8pt; }
+  .chips span.strong { background: var(--teal-soft); border-color: #B7D9D9; color: #0B5F63; font-weight: 600; }
+  .lang { display:flex; justify-content: space-between; align-items:center; margin-bottom: 1.3mm; }
+  .dots { display:flex; gap: 1mm; }
+  .dots i { width: 2.3mm; height: 2.3mm; border-radius: 50%; background: var(--teal); display:block; }
+  .dots i.off { background: #C9D5D8; }
+  .lang small { color: var(--muted); display:block; font-size: 7.6pt; }
+  .avail { background: var(--navy); color: #fff; border-radius: 4px; padding: 3mm 3.2mm; font-size: 8.2pt; }
+  .avail b { color: #BFE3E3; display:block; font-size: 8.6pt; margin-bottom: .6mm; }
+  aside ul { margin: 0; padding-left: 3.6mm; }
+  aside li { margin-bottom: 1mm; }
+
+  /* Main */
+  main { padding: 7mm 11mm 6mm 8mm; }
+  main h2 { font-family: "Ubuntu Sans", sans-serif; color: var(--navy); font-size: 11.2pt; text-transform: uppercase; letter-spacing: 1.1px; margin: 0 0 2.4mm; display: flex; align-items: center; gap: 2.5mm; }
+  main h2::after { content:""; flex: 1; height: 1.3px; background: var(--rule); }
+  main section { margin-bottom: 5mm; }
+  .entry { margin-bottom: 3.4mm; }
+  .entry-head { display: flex; justify-content: space-between; gap: 3mm; align-items: baseline; }
+  .entry-title { font-weight: 700; color: var(--navy); font-size: 9.4pt; }
+  .entry-date { color: var(--teal); font-weight: 600; font-size: 8.2pt; white-space: nowrap; }
+  .entry-org { color: var(--muted); font-size: 8.4pt; margin-bottom: 1mm; }
+  .entry-org b { color: var(--text); }
+  main ul { margin: .8mm 0 0; padding-left: 4mm; }
+  main li { margin-bottom: .9mm; }
+  main li::marker { color: var(--teal); }
+  .profile { text-align: justify; }
+  .stack { color: var(--teal); font-size: 8pt; font-weight: 600; margin: .4mm 0 .6mm; }
+  .project { margin-bottom: 3.2mm; padding-left: 3mm; border-left: 2px solid var(--teal-soft); }
+  .project .entry-title { font-size: 9.2pt; }
+  .highlights { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; margin-top: 2.6mm; }
+  .highlights div { background: var(--teal-soft); border-radius: 4px; padding: 2mm 2.4mm; font-size: 8pt; }
+  .highlights b { display:block; color: var(--navy); font-size: 12pt; line-height: 1.15; }
+  .badge { display:inline-block; background: var(--teal-soft); color:#0B5F63; font-size: 7.4pt; font-weight:600; border-radius: 3px; padding: 0 1.6mm; margin-left: 1.5mm; vertical-align: 1px; }
+</style>
+</head>
+<body>
+
+<!-- ============================ PAGE 1 ============================ -->
+<div class="page">
+  <header>
+    <h1>Mouhamadou Abdoulaye SOW</h1>
+    <div class="role">Software Engineer · Data · Cloud &amp; DevOps · Security</div>
+    <div class="tags">
+      <span>Software Engineering</span><span>Data Engineering</span><span>Cloud &amp; DevOps</span><span>Security</span><span>Java · Python</span>
+    </div>
+  </header>
+
+  <aside>
+    <section>
+      <h3>Contact</h3>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm16 2.8-8 5-8-5V17h16z"/></svg><a style="font-size:7.3pt" href="mailto:sowma@ept.edu.sn">sowma@ept.edu.sn</a></div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>+221 77 780 50 07</div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Thiès / Dakar, Senegal</div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2.5 7v7.5H9V10zm1.2-3.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zM11 10v7.5h2.5v-4c0-1 .4-1.8 1.5-1.8s1.3.9 1.3 1.8v4h2.5v-4.6c0-2.3-1.3-3.1-2.9-3.1-1.3 0-2 .6-2.4 1.2V10z"/></svg><a href="https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/">linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374</a></div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><a href="https://github.com/cloudDevML">github.com/cloudDevML</a></div>
+    </section>
+
+    <section>
+      <h3>Technical Skills</h3>
+      <div class="skill-group"><b>Software Engineering</b>
+        <div class="chips"><span class="strong">Java</span><span class="strong">Spring Boot</span><span class="strong">Python</span><span>FastAPI</span><span>Django</span><span>REST APIs</span><span>Microservices</span><span>TypeScript</span><span>Angular</span><span>React</span><span>C/C++</span><span>Go</span></div></div>
+      <div class="skill-group"><b>Data Engineering</b>
+        <div class="chips"><span class="strong">Apache Kafka</span><span class="strong">PostgreSQL</span><span>SQL</span><span>MongoDB</span><span>Redis</span><span>MySQL</span><span>pgvector</span><span>Pandas</span><span>NumPy</span><span>Power BI</span></div></div>
+      <div class="skill-group"><b>Cloud &amp; DevOps</b>
+        <div class="chips"><span class="strong">Docker</span><span class="strong">AWS EC2 &amp; S3</span><span class="strong">GitHub Actions</span><span>Docker Compose</span><span>Portainer</span><span>CI/CD</span><span>Linux</span><span>Bash</span><span>Git</span><span>Raft / etcd</span></div></div>
+      <div class="skill-group"><b>Security</b>
+        <div class="chips"><span class="strong">Keycloak IAM / SSO</span><span>OAuth2</span><span>JWT</span><span>RBAC</span><span>Cryptography</span><span>Network security</span></div></div>
+      <div class="skill-group"><b>Learning now</b>
+        <div class="chips"><span>Kubernetes</span><span>Terraform</span><span>Prometheus</span><span>Grafana</span><span>Trivy</span><span>Checkov</span><span>AWS IAM &amp; KMS</span></div></div>
+      <div class="skill-group"><b>AI &amp; Machine Learning</b>
+        <div class="chips"><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>OpenCV</span><span>RAG &amp; LLM APIs</span></div></div>
+    </section>
+
+  </aside>
+
+  <main>
+    <section>
+      <h2>Profile</h2>
+      <p class="profile">Full-stack and cloud engineer intern at <b>Atos</b> and final-year engineering student at École Polytechnique de Thiès,
+      Senegal's leading engineering school. I design software with <b>Java, Spring Boot and Python</b>, build <b>data pipelines</b> with Kafka,
+      PostgreSQL and MongoDB, deploy services to <b>AWS</b> with Docker and CI/CD, and secure them with <b>Keycloak, OAuth2, JWT and RBAC</b>.
+      I am now moving towards DevSecOps and cloud security: Terraform, Kubernetes, least-privilege IAM and security scanning in CI/CD.
+      My goal is to become a Cloud Security and Solutions Architect.</p>
+      <div class="highlights">
+        <div><b>2</b>software engineering internships at Atos</div>
+        <div><b>10+</b>projects across software, data, cloud and security</div>
+        <div><b>3</b>industries served: public sector, banking, telecom</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Engineering Degree – Computer Science &amp; Telecommunications</span><span class="entry-date">Oct. 2022 – 2027</span></div>
+        <div class="entry-org"><b>École Polytechnique de Thiès (EPT)</b> · Thiès, Senegal · 5-year programme, Master's level</div>
+        <ul>
+          <li><b>Year 5, current:</b> cloud-native design &amp; deployment, ML/DL &amp; MLOps, network security, cybersecurity, blockchain, IT governance.</li>
+          <li><b>Years 3–4:</b> distributed databases, Big Data, DevOps, advanced networking, cryptography, software architecture, operations research, signal processing.</li>
+          <li><b>Years 1–2, preparatory cycle:</b> intensive mathematics, physics, algorithms and programming.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Scientific Baccalaureate – with honours</span><span class="entry-date">July 2022</span></div>
+        <div class="entry-org"><b>Lycée de Yeumbeul (LEID)</b> · Dakar, Senegal</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Software Engineer Intern – Final-year Project</span><span class="entry-date"><span class="badge">Upcoming</span> Dec. 2026 – May 2027</span></div>
+        <div class="entry-org"><b>Atos</b> · Dakar, Senegal</div>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Full-Stack Developer Intern – FONSIS &amp; Atos Digital Push</span><span class="entry-date">Jul. 2026 – Nov. 2026</span></div>
+        <div class="entry-org"><b>Atos</b> · Dakar, Senegal</div>
+        <ul>
+          <li>Maintained and extended <b>FONSIS</b>, a national investment-management platform, fixing defects and delivering improvements requested directly by the client's CIO.</li>
+          <li>Deployed and operated containerised services with <b>Docker</b> and <b>Portainer</b> on <b>AWS</b>.</li>
+          <li>Maintained <b>CI/CD pipelines</b> on GitHub that automate build, test and release.</li>
+          <li>Integrated through its API <b>Atos Digital Push</b>, a multi-channel notification platform for SMS, e-mail, WhatsApp and voice campaigns, used by Orange, BCEAO and YAS.</li>
+          <li>Developed <b>Angular</b> front-end features and integrated <b>Power BI</b> dashboards to monitor key indicators.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Full-Stack Developer Intern – FONSIS</span><span class="entry-date">Jul. 2025 – Oct. 2025</span></div>
+        <div class="entry-org"><b>Atos</b> · Dakar, Senegal</div>
+        <ul>
+          <li>Developed enterprise web applications and secure <b>REST APIs</b> with <b>Spring Boot</b>, <b>Angular</b> and <b>React</b>.</li>
+          <li>Designed and administered <b>PostgreSQL</b> and <b>MongoDB</b> data models; containerised services with <b>Docker</b>.</li>
+          <li>Ran functional tests and fixed defects in staging, as part of an Agile/Scrum team using Jira and Confluence.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- ============================ PAGE 2 ============================ -->
+<div class="page">
+  <div class="mini-header"><span>Mouhamadou Abdoulaye SOW</span><span>Software · Data · Cloud &amp; DevOps · Security</span></div>
+
+  <aside>
+    <section>
+      <h3>Key Coursework</h3>
+      <ul>
+        <li>Mathematics &amp; applied mathematics</li>
+        <li>Algorithms &amp; data structures</li>
+        <li>Distributed databases &amp; Big Data</li>
+        <li>Machine learning, deep learning &amp; MLOps</li>
+        <li>Cloud-native systems &amp; DevOps</li>
+        <li>Systems administration &amp; networking</li>
+        <li>Cryptography &amp; cybersecurity</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Languages</h3>
+      <div class="lang"><div>French<small>Native</small></div><div class="dots"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="lang"><div>English<small>Professional working proficiency</small></div><div class="dots"><i></i><i></i><i></i><i></i><i class="off"></i></div></div>
+      <div class="lang"><div>Pulaar<small>Native</small></div><div class="dots"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="lang"><div>Wolof<small>Fluent</small></div><div class="dots"><i></i><i></i><i></i><i></i><i class="off"></i></div></div>
+    </section>
+
+    <section>
+      <div class="avail"><b>Career goal</b>DevSecOps / Cloud Security Engineer, then Cloud Security &amp; Solutions Architect</div>
+    </section>
+    <section>
+      <h3>Certification Path</h3>
+      <ul>
+        <li>AWS Solutions Architect – Associate</li>
+        <li>HashiCorp Terraform Associate</li>
+        <li>CompTIA Security+ or AWS Security – Specialty</li>
+        <li>CKA, then CKS</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3>Interests</h3>
+      <div class="chips">
+        <span>Software architecture</span><span>API design</span><span>Open source</span><span>Data pipelines &amp; streaming</span><span>Big Data</span><span>Cloud-native architecture</span><span>Infrastructure as Code</span><span>Kubernetes</span><span>CI/CD automation</span><span>Cloud security &amp; IAM</span><span>DevSecOps</span><span>Cryptography</span><span>CTF challenges</span>
+      </div>
+    </section>
+
+  </aside>
+
+  <main>
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="project">
+        <div class="entry-title">LMS Universities – Distributed E-learning Platform for EPT</div>
+        <div class="stack">Java · Spring Boot · Kafka · PostgreSQL · MongoDB · Keycloak · Docker · pgvector</div>
+        Designed a platform of 8 Spring Boot microservices communicating through Kafka events, secured with Keycloak single sign-on, OAuth2/JWT and role-based access control. It also provides real-time WebSocket notifications, sandboxed code execution with Judge0 and a RAG-based AI assistant.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">MS Platform – Event-driven Microservice Architecture</div>
+        <div class="stack">Spring Cloud · Kafka · Redis · PostgreSQL · Docker</div>
+        Built a distributed backend with service discovery, centralised configuration, asynchronous messaging and Redis caching to improve scalability and availability.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Raft Consensus Algorithm Implementation</div>
+        <div class="stack">Go · Python · Docker · etcd</div>
+        Implemented leader election and log replication across containerised nodes to study fault tolerance and consistency in distributed systems.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Automated CI/CD Pipeline</div>
+        <div class="stack">GitHub Actions · Maven · Docker</div>
+        Automated build, testing and container-image publication for Java services.
+      </div>
+      <div class="project">
+        <div class="entry-title">Parking Space Counter – Real-time Computer Vision</div>
+        <div class="stack">Python · OpenCV · PyTorch · Docker</div>
+        Developed a containerised service that processes live video streams to detect and count free parking spaces in real time.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Image Classification Models: Plant Disease Detection &amp; Waste Sorting</div>
+        <div class="stack">PyTorch · TensorFlow · Django · Streamlit</div>
+        Trained deep-learning image classifiers and served them through a REST API and an interactive web interface.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Recommendation Engine</div>
+        <div class="stack">Python · scikit-learn · PostgreSQL · REST API</div>
+        Built a recommendation system based on analysis of user behaviour data.
+      </div>
+
+    </section>
+
+    <section>
+      <h2>Leadership &amp; Community</h2>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Vice-President – Galsen AI Community, EPT chapter</span><span class="entry-date">2023 – 2024</span></div>
+        <div class="entry-org"><b>École Polytechnique de Thiès</b> · Thiès, Senegal</div>
+        <ul>
+          <li>Organised hands-on AI workshops at the school's annual tech symposium.</li>
+          <li>Guided fellow students to the <i>Elements of AI</i> and <i>NVIDIA Deep Learning Institute</i> certifications.</li>
+          <li>Promoted applied AI research on campus and encouraged students to publish their work.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">President – Newspaper Sub-Commission</span><span class="entry-date">2023 – 2024</span></div>
+        <div class="entry-org"><b>École Polytechnique de Thiès</b> · Thiès, Senegal</div>
+        <ul>
+          <li>Led a student editorial team and managed content production for the student body.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>

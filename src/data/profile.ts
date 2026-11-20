@@ -7,7 +7,7 @@ export const profile = {
   tagline:
     "Full-stack and cloud engineer at Atos and final-year engineering student. I build secure, data-driven software and automate how it is shipped to the cloud. My goal is to become a Cloud Security and Solutions Architect.",
   location: "Thiès / Dakar, Senegal",
-  email: "mamadoualassane2003@gmail.com",
+  email: "sowma@ept.edu.sn",
   github: "https://github.com/cloudDevML",
   linkedin: "https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/",
   cv: "/CV_Mouhamadou_Abdoulaye_SOW.pdf",
@@ -59,10 +59,10 @@ export const experiences: Experience[] = [
       "Integrated Atos Digital Push, a multi-channel notification platform for SMS, e-mail, WhatsApp and voice campaigns used by Orange, BCEAO and YAS.",
       "Built Power BI dashboards to monitor key indicators.",
     ],
-    stack: ["Docker", "Portainer", "AWS", "GitHub CI/CD", "REST APIs", "Power BI"],
+    stack: ["Docker", "Portainer", "AWS", "GitHub CI/CD", "REST APIs", "Power BI", "Angular"],
   },
   {
-    title: "Full-Stack Developer Intern",
+    title: "Full-Stack Developer Intern – FONSIS",
     company: "Atos",
     location: "Dakar, Senegal",
     period: "Jul. 2025 – Oct. 2025",
@@ -211,13 +211,20 @@ export const leadership = [
 ];
 
 export const interests = [
-  "Reading research papers",
-  "Discovering new things",
-  "Mathematics",
-  "AI agents",
-  "Machine learning",
-  "Robotics",
-  "IoT",
+  "Software architecture & clean code",
+  "Microservices & API design",
+  "Open source",
+  "Data pipelines & streaming",
+  "Data modelling & analytics",
+  "Big Data processing",
+  "Cloud-native architecture",
+  "Infrastructure as Code",
+  "Kubernetes & containers",
+  "CI/CD automation",
+  "Cloud security & IAM",
+  "DevSecOps",
+  "Cryptography",
+  "CTF & security challenges",
 ];
 
 export const languages = [
