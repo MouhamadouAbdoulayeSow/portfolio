@@ -13,6 +13,7 @@ import {
   skills,
 } from "@/data/profile";
 import { Icon, Section, Tag } from "@/components/ui";
+import Image from "next/image";
 
 const nav = [
   { href: "#about", label: "About" },
@@ -62,48 +63,65 @@ export default function Home() {
               backgroundSize: "28px 28px",
             }}
           />
-          <div className="relative mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-28">
-            <p className="font-mono text-sm text-[#7fd6d8]">Hello, I&apos;m</p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
-            <p className="mt-4 text-lg text-[#bfe3e3] sm:text-xl">{profile.role}</p>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">{profile.tagline}</p>
+          <div className="relative mx-auto grid max-w-5xl items-center gap-14 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[minmax(0,1fr)_19rem]">
+            <div>
+              <p className="font-mono text-sm text-[#7fd6d8]">Hello, I&apos;m</p>
+              <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
+              <p className="mt-4 text-lg text-[#bfe3e3] sm:text-xl">{profile.role}</p>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">{profile.tagline}</p>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {profile.focus.map((f) => (
-                <span key={f} className="rounded-full border border-white/25 px-3 py-1 text-xs text-white/90">
-                  {f}
-                </span>
-              ))}
+              <div className="mt-6 flex flex-wrap gap-2">
+                {profile.focus.map((f) => (
+                  <span key={f} className="rounded-full border border-white/25 px-3 py-1 text-xs text-white/90">
+                    {f}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-10 flex flex-wrap gap-3">
+                <a
+                  href={profile.cv}
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#0e8388] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0b6d71]"
+                >
+                  <Icon name="download" /> Download CV
+                </a>
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold transition hover:bg-white/10"
+                >
+                  <Icon name="github" /> GitHub
+                </a>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold transition hover:bg-white/10"
+                >
+                  <Icon name="linkedin" /> LinkedIn
+                </a>
+              </div>
+
+              <p className="mt-8 flex items-center gap-2 text-sm text-white/60">
+                <Icon name="pin" /> {profile.location}
+              </p>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
-              <a
-                href={profile.cv}
-                className="inline-flex items-center gap-2 rounded-lg bg-[#0e8388] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0b6d71]"
-              >
-                <Icon name="download" /> Download CV
-              </a>
-              <a
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold transition hover:bg-white/10"
-              >
-                <Icon name="github" /> GitHub
-              </a>
-              <a
-                href={profile.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-5 py-2.5 text-sm font-semibold transition hover:bg-white/10"
-              >
-                <Icon name="linkedin" /> LinkedIn
-              </a>
+            <div className="relative mx-auto w-full max-w-72 lg:max-w-none">
+              <div aria-hidden="true" className="absolute -inset-3 translate-x-3 translate-y-3 rounded-[2rem] border border-[#7fd6d8]/35" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] border border-white/20 bg-white/5 shadow-2xl shadow-black/30">
+                <Image
+                  src="/images/mouhamadou-sow-portrait.jpg"
+                  alt="Portrait of Mouhamadou Abdoulaye Sow"
+                  fill
+                  sizes="(min-width: 1024px) 304px, 288px"
+                  className="object-cover object-[center_48%]"
+                  priority
+                  unoptimized
+                />
+              </div>
             </div>
-
-            <p className="mt-8 flex items-center gap-2 text-sm text-white/60">
-              <Icon name="pin" /> {profile.location}
-            </p>
           </div>
         </section>
 
