@@ -101,11 +101,11 @@
       <div class="skill-group"><b>Data Engineering</b>
         <div class="chips"><span class="strong">Apache Kafka</span><span class="strong">PostgreSQL</span><span>SQL</span><span>MongoDB</span><span>Redis</span><span>MySQL</span><span>pgvector</span><span>Pandas</span><span>NumPy</span><span>Power BI</span></div></div>
       <div class="skill-group"><b>Cloud &amp; DevOps</b>
-        <div class="chips"><span class="strong">Docker</span><span class="strong">AWS EC2 &amp; S3</span><span class="strong">GitHub Actions</span><span>Docker Compose</span><span>Portainer</span><span>CI/CD</span><span>Linux</span><span>Bash</span><span>Git</span><span>Raft / etcd</span></div></div>
+        <div class="chips"><span class="strong">Docker</span><span class="strong">AWS EC2 &amp; S3</span><span class="strong">Kubernetes</span><span class="strong">Terraform</span><span>GitHub Actions</span><span>Docker Compose</span><span>Portainer</span><span>CI/CD</span><span>Linux</span><span>Bash</span><span>Git</span><span>Raft / etcd</span></div></div>
       <div class="skill-group"><b>Security</b>
         <div class="chips"><span class="strong">Keycloak IAM / SSO</span><span>OAuth2</span><span>JWT</span><span>RBAC</span><span>Cryptography</span><span>Network security</span></div></div>
       <div class="skill-group"><b>Learning now</b>
-        <div class="chips"><span>Kubernetes</span><span>Terraform</span><span>Prometheus</span><span>Grafana</span><span>Trivy</span><span>Checkov</span><span>AWS IAM &amp; KMS</span></div></div>
+        <div class="chips"><span>Helm</span><span>Prometheus</span><span>Grafana</span><span>Trivy</span><span>Checkov</span><span>AWS IAM &amp; KMS</span></div></div>
       <div class="skill-group"><b>AI &amp; Machine Learning</b>
         <div class="chips"><span>PyTorch</span><span>TensorFlow</span><span>scikit-learn</span><span>OpenCV</span><span>RAG &amp; LLM APIs</span></div></div>
     </section>
@@ -118,7 +118,7 @@
       <p class="profile">Full-stack and cloud engineer intern at <b>Atos</b> and final-year engineering student at École Polytechnique de Thiès,
       Senegal's leading engineering school. I design software with <b>Java, Spring Boot and Python</b>, build <b>data pipelines</b> with Kafka,
       PostgreSQL and MongoDB, deploy services to <b>AWS</b> with Docker and CI/CD, and secure them with <b>Keycloak, OAuth2, JWT and RBAC</b>.
-      I am now moving towards DevSecOps and cloud security: Terraform, Kubernetes, least-privilege IAM and security scanning in CI/CD.
+      I deploy on Kubernetes, write infrastructure as code with Terraform and am now moving towards DevSecOps: least-privilege IAM and security scanning in CI/CD.
       My goal is to become a Cloud Security and Solutions Architect.</p>
       <div class="highlights">
         <div><b>2</b>software engineering internships at Atos</div>
@@ -229,19 +229,31 @@
       <div class="project">
         <div class="entry-title">LMS Universities – Distributed E-learning Platform for EPT</div>
         <div class="stack">Java · Spring Boot · Kafka · PostgreSQL · MongoDB · Keycloak · Docker · pgvector</div>
-        Designed a platform of 8 Spring Boot microservices communicating through Kafka events, secured with Keycloak single sign-on, OAuth2/JWT and role-based access control. It also provides real-time WebSocket notifications, sandboxed code execution with Judge0 and a RAG-based AI assistant.
+        Designed a platform of 8 Spring Boot microservices communicating through Kafka events, secured with Keycloak single sign-on, OAuth2/JWT and role-based access control. It also provides real-time WebSocket notifications, sandboxed code execution with Judge0 and a RAG-based AI assistant. An improved version adds a course marketplace with orders and AI-based recommendations, shipped with Docker and CI/CD.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">LLM Deployment on Kubernetes</div>
+        <div class="stack">Docker Compose · Kubernetes · Ingress · NetworkPolicy · Autoscaling</div>
+        Deployed a large language model with Docker Compose, then on Kubernetes with persistent storage, Ingress, network isolation and autoscaling.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">AWS Infrastructure as Code with Terraform</div>
+        <div class="stack">Terraform · AWS S3 · DynamoDB</div>
+        Wrote reusable Terraform modules with separate dev and prod environments and Terraform tests, run against a local AWS emulator.
       </div>
 
       <div class="project">
         <div class="entry-title">MS Platform – Event-driven Microservice Architecture</div>
         <div class="stack">Spring Cloud · Kafka · Redis · PostgreSQL · Docker</div>
-        Built a distributed backend with service discovery, centralised configuration, asynchronous messaging and Redis caching to improve scalability and availability.
+        Built a distributed backend with service discovery, centralised configuration, asynchronous messaging and Redis caching.
       </div>
 
       <div class="project">
         <div class="entry-title">Raft Consensus Algorithm Implementation</div>
         <div class="stack">Go · Python · Docker · etcd</div>
-        Implemented leader election and log replication across containerised nodes to study fault tolerance and consistency in distributed systems.
+        Implemented leader election and log replication across containerised nodes to study fault tolerance in distributed systems.
       </div>
 
       <div class="project">
@@ -249,22 +261,11 @@
         <div class="stack">GitHub Actions · Maven · Docker</div>
         Automated build, testing and container-image publication for Java services.
       </div>
-      <div class="project">
-        <div class="entry-title">Parking Space Counter – Real-time Computer Vision</div>
-        <div class="stack">Python · OpenCV · PyTorch · Docker</div>
-        Developed a containerised service that processes live video streams to detect and count free parking spaces in real time.
-      </div>
 
       <div class="project">
-        <div class="entry-title">Image Classification Models: Plant Disease Detection &amp; Waste Sorting</div>
-        <div class="stack">PyTorch · TensorFlow · Django · Streamlit</div>
-        Trained deep-learning image classifiers and served them through a REST API and an interactive web interface.
-      </div>
-
-      <div class="project">
-        <div class="entry-title">Recommendation Engine</div>
-        <div class="stack">Python · scikit-learn · PostgreSQL · REST API</div>
-        Built a recommendation system based on analysis of user behaviour data.
+        <div class="entry-title">Recommendation System &amp; Computer Vision</div>
+        <div class="stack">Python · scikit-learn · PostgreSQL · OpenCV · PyTorch · Docker</div>
+        Built an e-commerce recommendation engine on user behaviour data and a containerised real-time service that counts free parking spaces from video streams.
       </div>
 
     </section>

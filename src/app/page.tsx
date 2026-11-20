@@ -63,7 +63,7 @@ export default function Home() {
               backgroundSize: "28px 28px",
             }}
           />
-          <div className="relative mx-auto grid max-w-5xl items-center gap-14 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-[minmax(0,1fr)_19rem]">
+          <div className="relative mx-auto grid max-w-5xl items-center gap-10 px-4 py-16 lg:gap-14 sm:px-6 sm:py-28 lg:grid-cols-[minmax(0,1fr)_19rem]">
             <div>
               <p className="font-mono text-sm text-[#7fd6d8]">Hello, I&apos;m</p>
               <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
@@ -108,7 +108,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="relative mx-auto w-full max-w-72 lg:max-w-none">
+            <div className="relative order-first mx-auto w-full max-w-52 sm:max-w-64 lg:order-none lg:max-w-none">
               <div aria-hidden="true" className="absolute -inset-3 translate-x-3 translate-y-3 rounded-[2rem] border border-[#7fd6d8]/35" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] border border-white/20 bg-white/5 shadow-2xl shadow-black/30">
                 <Image

@@ -18,7 +18,7 @@ export const about = {
   paragraphs: [
     "I am a full-stack and cloud engineer intern at Atos and a final-year student in Computer Science & Telecommunications at École Polytechnique de Thiès, Senegal's leading engineering school.",
     "My work combines four areas. I design software with Java, Spring Boot and Python APIs. I build data pipelines with Kafka, PostgreSQL and MongoDB. I containerise and deploy services to AWS with Docker and CI/CD. I secure them with Keycloak, OAuth2, JWT and RBAC. At Atos, I ship these skills to production for public-sector, banking and telecom clients.",
-    "I am now moving towards DevSecOps and cloud security: infrastructure as code with Terraform, Kubernetes, least-privilege IAM, encryption and security scanning in CI/CD. My long-term goal is to design secure, scalable cloud architectures as a Cloud Security and Solutions Architect.",
+    "I already deploy workloads on Kubernetes and write infrastructure as code with Terraform. I am now moving towards DevSecOps and cloud security: least-privilege IAM, encryption, observability and security scanning in CI/CD. My long-term goal is to design secure, scalable cloud architectures as a Cloud Security and Solutions Architect.",
   ],
   stats: [
     { value: "2", label: "software engineering internships at Atos" },
@@ -86,28 +86,64 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    title: "Raft Consensus Algorithm",
-    category: "Cloud & DevOps",
-    description:
-      "Implementation of leader election and log replication across containerised nodes to study fault tolerance and consistency in distributed systems.",
-    stack: ["Go", "Python", "Docker", "etcd"],
-    featured: true,
-  },
-  {
     title: "LMS Universities",
     category: "Software",
     description:
-      "Distributed e-learning platform for EPT: 8 Spring Boot microservices communicating through Kafka events, secured with Keycloak single sign-on, OAuth2/JWT and role-based access control. Includes sandboxed code execution with Judge0, real-time notifications and a RAG-based AI assistant.",
-    stack: ["Java", "Spring Boot", "Kafka", "PostgreSQL", "MongoDB", "Keycloak", "pgvector"],
+      "Smart e-learning platform for EPT with admin, teacher and student spaces. 8 Spring Boot microservices communicate through Kafka events behind a secured API gateway, with Keycloak single sign-on, OAuth2/JWT and role-based access control. It adds sandboxed code execution with Judge0, real-time notifications, gamification and a RAG-based AI assistant. An improved version adds a course marketplace with orders and AI-based recommendations, shipped with Docker and a CI/CD pipeline.",
+    stack: ["Java", "Spring Boot", "Spring Cloud", "Kafka", "PostgreSQL", "MongoDB", "Keycloak", "React", "pgvector", "Docker", "CI/CD"],
     featured: true,
+  },
+  {
+    title: "ShopVocal",
+    category: "Software",
+    description:
+      "Mobile sales and stock management app for small retailers, with an AI voice assistant. FastAPI backend on PostgreSQL, JWT authentication and secure token storage on the device.",
+    stack: ["FastAPI", "Python", "PostgreSQL", "JWT", "Mobile"],
+  },
+  {
+    title: "SenPanier Bio",
+    category: "Software",
+    description:
+      "Marketplace for organic products in Senegal with user profiles, catalogue, cart and orders, built on a Saleor GraphQL backend.",
+    stack: ["React", "TypeScript", "Node.js", "Saleor GraphQL", "PostgreSQL", "Docker"],
   },
   {
     title: "MS Platform",
     category: "Data",
     description:
-      "Event-driven backend where services exchange data through Kafka streams, with Redis caching, service discovery and centralised configuration.",
+      "Event-driven backend where services exchange data through Kafka streams, with Redis caching, service discovery, centralised configuration and separate dev and prod profiles.",
     stack: ["Spring Cloud", "Kafka", "Redis", "PostgreSQL", "Docker"],
     featured: true,
+  },
+  {
+    title: "Recommendation System",
+    category: "Data",
+    description:
+      "E-commerce recommendation engine using collaborative and content-based filtering on user behaviour data, exposed through a REST API to a web front end.",
+    stack: ["Python", "scikit-learn", "PostgreSQL", "REST APIs"],
+  },
+  {
+    title: "LLM Deployment on Kubernetes",
+    category: "Cloud & DevOps",
+    description:
+      "Deployed a large language model first with Docker Compose, then on Kubernetes with persistent storage, Ingress, NetworkPolicy isolation and autoscaling.",
+    stack: ["Docker Compose", "Kubernetes", "Minikube", "Ingress", "NetworkPolicy", "HPA"],
+    featured: true,
+  },
+  {
+    title: "AWS Infrastructure as Code with Terraform",
+    category: "Cloud & DevOps",
+    description:
+      "S3 and DynamoDB infrastructure written as reusable Terraform modules, with separate dev and prod environments and Terraform tests, run against a local AWS emulator.",
+    stack: ["Terraform", "AWS S3", "DynamoDB", "IaC"],
+    featured: true,
+  },
+  {
+    title: "Raft Consensus Algorithm",
+    category: "Cloud & DevOps",
+    description:
+      "Implementation of leader election and log replication across containerised nodes to study fault tolerance and consistency in distributed systems.",
+    stack: ["Go", "Python", "Docker", "etcd"],
   },
   {
     title: "Automated CI/CD Pipeline",
@@ -128,18 +164,6 @@ export const projects: Project[] = [
     description: "Deep-learning image classifier for plant diseases, served through a Django REST API.",
     stack: ["Python", "PyTorch", "Django"],
   },
-  {
-    title: "Waste Classification",
-    category: "AI",
-    description: "Image classifier that sorts waste into organic and recyclable, with an interactive web interface.",
-    stack: ["TensorFlow", "Streamlit"],
-  },
-  {
-    title: "Recommendation Engine",
-    category: "Data",
-    description: "Recommendation system built on the analysis of user behaviour data stored in PostgreSQL.",
-    stack: ["Python", "scikit-learn", "PostgreSQL"],
-  },
 ];
 
 export const skills: { group: string; items: string[]; core?: string[] }[] = [
@@ -155,8 +179,8 @@ export const skills: { group: string; items: string[]; core?: string[] }[] = [
   },
   {
     group: "Cloud & DevOps",
-    items: ["AWS EC2 & S3", "Docker", "Docker Compose", "Portainer", "GitHub Actions", "CI/CD", "Linux", "Bash", "Git", "Raft / etcd"],
-    core: ["AWS EC2 & S3", "Docker", "GitHub Actions"],
+    items: ["AWS EC2 & S3", "Docker", "Docker Compose", "Portainer", "GitHub Actions", "CI/CD", "Kubernetes", "Terraform", "Linux", "Bash", "Git", "Raft / etcd"],
+    core: ["AWS EC2 & S3", "Docker", "Kubernetes", "Terraform"],
   },
   {
     group: "Security",
@@ -165,7 +189,7 @@ export const skills: { group: string; items: string[]; core?: string[] }[] = [
   },
   {
     group: "Learning now",
-    items: ["Kubernetes", "Terraform", "Prometheus", "Grafana", "Trivy", "Checkov", "Semgrep", "AWS IAM & KMS"],
+    items: ["Helm", "Prometheus", "Grafana", "Trivy", "Checkov", "Semgrep", "AWS IAM & KMS"],
   },
   {
     group: "AI & Machine Learning",
