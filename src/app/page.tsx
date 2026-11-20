@@ -109,14 +109,14 @@ export default function Home() {
             </div>
 
             <div className="relative order-first mx-auto w-full max-w-52 sm:max-w-64 lg:order-none lg:max-w-none">
-              <div aria-hidden="true" className="absolute -inset-3 translate-x-3 translate-y-3 rounded-[2rem] border border-[#7fd6d8]/35" />
-              <div className="relative aspect-[4/5] overflow-hidden rounded-[1.6rem] border border-white/20 bg-white/5 shadow-2xl shadow-black/30">
+              <div aria-hidden="true" className="absolute -inset-3 rounded-full border border-[#7fd6d8]/35" />
+              <div className="relative aspect-square overflow-hidden rounded-full border-4 border-white/20 bg-white/5 shadow-2xl shadow-black/30">
                 <Image
                   src="/images/mouhamadou-sow-portrait.jpg"
                   alt="Portrait of Mouhamadou Abdoulaye Sow"
                   fill
                   sizes="(min-width: 1024px) 304px, 288px"
-                  className="object-cover object-[center_48%]"
+                  className="object-cover object-[center_75%]"
                   priority
                   unoptimized
                 />
