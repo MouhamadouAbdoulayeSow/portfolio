@@ -75,7 +75,7 @@ export const experiences: Experience[] = [
   },
 ];
 
-export type Domain = "Software" | "Data" | "Cloud & DevOps" | "Security" | "AI";
+export type Domain = "Software" | "Data" | "Cloud & DevOps" | "DevOps" | "Security" | "AI";
 
 export type Project = {
   title: string;
@@ -90,7 +90,7 @@ const repo = (name: string) => `https://github.com/MouhamadouAbdoulayeSow/${name
 export const projects: Project[] = [
   {
     title: "LMS Universities",
-    domains: ["Software", "Cloud & DevOps", "Security", "AI"],
+    domains: ["Software", "DevOps", "Security", "AI"],
     description: "E-learning platform for EPT built with Spring Boot microservices and Kafka, deployed to AWS through CI/CD.",
     stack: ["Spring Boot", "Kafka", "Docker", "AWS EC2"],
     link: repo("LMS_universities"),
