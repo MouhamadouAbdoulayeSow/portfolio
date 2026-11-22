@@ -1,36 +1,35 @@
-import {
-  about,
-  education,
-  experiences,
-  interests,
-  languages,
-  leadership,
-  profile,
-  projects,
-  skills,
-  ui,
-  altSiteUrl,
-} from "@/data/profile";
+import { getContent, isLocale, locales } from "@/data/profile";
+import { notFound } from "next/navigation";
 import { Icon, Section, Tag } from "@/components/ui";
 import Image from "next/image";
 
-const nav = [
-  { href: "#about", label: ui.nav.about },
-  { href: "#experience", label: ui.nav.experience },
-  { href: "#projects", label: ui.nav.projects },
-  { href: "#skills", label: ui.nav.skills },
-  { href: "#education", label: ui.nav.education },
-  { href: "#contact", label: ui.nav.contact },
-];
+const categoryOrder = ["Software", "Data", "Cloud & DevOps", "DevOps", "Security", "AI"];
 
-const categoryOrder = ["Software", "Data", "Cloud & DevOps", "Security", "AI"];
-const sortedProjects = [...projects].sort(
-  (a, b) =>
-    Number(Boolean(a.inProgress)) - Number(Boolean(b.inProgress)) ||
-    categoryOrder.indexOf(a.domains[0]) - categoryOrder.indexOf(b.domains[0]),
-);
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
 
-export default function Home() {
+export default async function Home({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  if (!isLocale(lang)) notFound();
+  const { profile, about, experiences, projects, skills, education, leadership, interests, languages, ui } = getContent(lang);
+  const otherLang = lang === "fr" ? "en" : "fr";
+
+  const nav = [
+    { href: "#about", label: ui.nav.about },
+    { href: "#experience", label: ui.nav.experience },
+    { href: "#projects", label: ui.nav.projects },
+    { href: "#skills", label: ui.nav.skills },
+    { href: "#education", label: ui.nav.education },
+    { href: "#contact", label: ui.nav.contact },
+  ];
+
+  const sortedProjects = [...projects].sort(
+    (a, b) =>
+      Number(Boolean(a.inProgress)) - Number(Boolean(b.inProgress)) ||
+      categoryOrder.indexOf(a.domains[0]) - categoryOrder.indexOf(b.domains[0]),
+  );
+
   return (
     <>
       {/* Navigation */}
@@ -39,26 +38,24 @@ export default function Home() {
           <a href="#top" className="shrink-0 whitespace-nowrap font-mono text-sm font-semibold text-ink">
             {profile.shortName}
           </a>
-          <ul className="flex gap-4 overflow-x-auto text-sm text-muted sm:gap-6">
-            {nav.map((n) => (
-              <li key={n.href} className="shrink-0">
-                <a href={n.href} className="transition-colors hover:text-accent">
-                  {n.label}
-                </a>
-              </li>
-            ))}
-            {altSiteUrl && (
-              <li className="shrink-0">
-                <a
-                  href={altSiteUrl}
-                  hrefLang={ui.lang === "fr" ? "en" : "fr"}
-                  className="rounded border border-line px-2 py-0.5 font-mono text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
-                >
-                  {ui.switchLabel}
-                </a>
-              </li>
-            )}
-          </ul>
+          <div className="flex min-w-0 items-center gap-3 sm:gap-6">
+            <ul className="flex min-w-0 gap-4 overflow-x-auto text-sm text-muted sm:gap-6">
+              {nav.map((n) => (
+                <li key={n.href} className="shrink-0">
+                  <a href={n.href} className="transition-colors hover:text-accent">
+                    {n.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href={`/${otherLang}`}
+              hrefLang={otherLang}
+              className="shrink-0 rounded border border-line px-2 py-0.5 font-mono text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+            >
+              {ui.switchLabel}
+            </a>
+          </div>
         </nav>
       </header>
 

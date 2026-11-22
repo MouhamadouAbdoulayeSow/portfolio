@@ -1,11 +1,11 @@
-// The site language is chosen at build time with NEXT_PUBLIC_SITE_LANG ("en" by default, or "fr").
-// Edit en.ts for the English site and fr.ts for the French site.
+// Content for both languages. Edit en.ts for English and fr.ts for French.
 import { en } from "./en";
 import { fr } from "./fr";
+import type { Content } from "./types";
 
-const content = process.env.NEXT_PUBLIC_SITE_LANG === "fr" ? fr : en;
+export const locales = ["en", "fr"] as const;
+export type Locale = (typeof locales)[number];
 
-// Link to the other language version, shown in the navigation when set.
-export const altSiteUrl = process.env.NEXT_PUBLIC_ALT_SITE_URL ?? "";
+export const isLocale = (value: string): value is Locale => (locales as readonly string[]).includes(value);
 
-export const { profile, about, experiences, projects, skills, education, leadership, interests, languages, ui } = content;
+export const getContent = (lang: Locale): Content => (lang === "fr" ? fr : en);
