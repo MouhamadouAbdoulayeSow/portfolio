@@ -4,29 +4,29 @@ import {
   experiences,
   interests,
   languages,
-  recommendations,
   leadership,
   profile,
   projects,
   skills,
+  ui,
+  altSiteUrl,
 } from "@/data/profile";
 import { Icon, Section, Tag } from "@/components/ui";
 import Image from "next/image";
 
 const nav = [
-  { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
-  { href: "#recommendations", label: "Recommendations" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: ui.nav.about },
+  { href: "#experience", label: ui.nav.experience },
+  { href: "#projects", label: ui.nav.projects },
+  { href: "#skills", label: ui.nav.skills },
+  { href: "#education", label: ui.nav.education },
+  { href: "#contact", label: ui.nav.contact },
 ];
 
 const categoryOrder = ["Software", "Data", "Cloud & DevOps", "Security", "AI"];
 const sortedProjects = [...projects].sort(
   (a, b) =>
-    Number(Boolean(a.status)) - Number(Boolean(b.status)) ||
+    Number(Boolean(a.inProgress)) - Number(Boolean(b.inProgress)) ||
     categoryOrder.indexOf(a.domains[0]) - categoryOrder.indexOf(b.domains[0]),
 );
 
@@ -47,6 +47,17 @@ export default function Home() {
                 </a>
               </li>
             ))}
+            {altSiteUrl && (
+              <li className="shrink-0">
+                <a
+                  href={altSiteUrl}
+                  hrefLang={ui.lang === "fr" ? "en" : "fr"}
+                  className="rounded border border-line px-2 py-0.5 font-mono text-xs font-semibold text-ink transition-colors hover:border-accent hover:text-accent"
+                >
+                  {ui.switchLabel}
+                </a>
+              </li>
+            )}
           </ul>
         </nav>
       </header>
@@ -65,7 +76,7 @@ export default function Home() {
           />
           <div className="relative mx-auto grid max-w-5xl items-center gap-10 px-4 py-16 lg:gap-14 sm:px-6 sm:py-28 lg:grid-cols-[minmax(0,1fr)_19rem]">
             <div>
-              <p className="font-mono text-sm text-[#7fd6d8]">Hello, I&apos;m</p>
+              <p className="font-mono text-sm text-[#7fd6d8]">{ui.hello}</p>
               <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-6xl">{profile.name}</h1>
               <p className="mt-4 text-lg text-[#bfe3e3] sm:text-xl">{profile.role}</p>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">{profile.tagline}</p>
@@ -83,7 +94,7 @@ export default function Home() {
                   href={profile.cv}
                   className="inline-flex items-center gap-2 rounded-lg bg-[#0e8388] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0b6d71]"
                 >
-                  <Icon name="download" /> Download CV
+                  <Icon name="download" /> {ui.downloadCv}
                 </a>
                 <a
                   href={profile.github}
@@ -113,7 +124,7 @@ export default function Home() {
               <div className="relative aspect-square overflow-hidden rounded-full border-4 border-white/20 bg-white/5 shadow-2xl shadow-black/30">
                 <Image
                   src="/images/mouhamadou-sow-portrait.jpg"
-                  alt="Portrait of Mouhamadou Abdoulaye Sow"
+                  alt={ui.portraitAlt}
                   fill
                   sizes="(min-width: 1024px) 304px, 288px"
                   className="object-cover object-[center_75%]"
@@ -126,7 +137,7 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <Section id="about" kicker="01 · About" title="Software, data, cloud and security, end to end">
+        <Section id="about" kicker={ui.sections.about.kicker} title={ui.sections.about.title}>
           <div className="grid gap-10 md:grid-cols-[1.6fr_1fr]">
             <div className="space-y-4 leading-relaxed text-muted">
               {about.paragraphs.map((p) => (
@@ -146,7 +157,7 @@ export default function Home() {
 
         {/* Experience */}
         <div className="bg-surface-2/50">
-          <Section id="experience" kicker="02 · Experience" title="Where I have worked">
+          <Section id="experience" kicker={ui.sections.experience.kicker} title={ui.sections.experience.title}>
             <ol className="relative space-y-10 border-l-2 border-line pl-6 sm:pl-8">
               {experiences.map((e) => (
                 <li key={e.title + e.period} className="relative">
@@ -156,7 +167,7 @@ export default function Home() {
                       {e.title}
                       {e.upcoming && (
                         <span className="ml-2 rounded bg-accent-soft px-2 py-0.5 align-middle text-xs font-medium text-accent">
-                          Upcoming
+                          {ui.upcoming}
                         </span>
                       )}
                     </h3>
@@ -184,7 +195,7 @@ export default function Home() {
         </div>
 
         {/* Projects */}
-        <Section id="projects" kicker="03 · Projects" title="Things I have built">
+        <Section id="projects" kicker={ui.sections.projects.kicker} title={ui.sections.projects.title}>
           <div className="grid auto-rows-fr gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {sortedProjects.map((p) => (
               <article
@@ -192,10 +203,10 @@ export default function Home() {
                 className="flex flex-col rounded-xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <div className="flex items-start justify-between gap-2">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.domains.join(" · ")}</span>
-                  {p.status && (
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.domains.map((d) => ui.domains[d]).join(" · ")}</span>
+                  {p.inProgress && (
                     <span className="shrink-0 whitespace-nowrap rounded bg-accent-soft px-2 py-0.5 text-[11px] font-medium text-accent">
-                      {p.status}
+                      {ui.inProgress}
                     </span>
                   )}
                 </div>
@@ -212,7 +223,7 @@ export default function Home() {
                   rel="noreferrer"
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
                 >
-                  <Icon name="github" /> View code
+                  <Icon name="github" /> {ui.viewCode}
                 </a>
               </article>
             ))}
@@ -221,7 +232,7 @@ export default function Home() {
 
         {/* Skills */}
         <div className="bg-surface-2/50">
-          <Section id="skills" kicker="04 · Skills" title="Technical toolbox">
+          <Section id="skills" kicker={ui.sections.skills.kicker} title={ui.sections.skills.title}>
             <div className="grid gap-6 sm:grid-cols-2">
               {skills.map((g) => (
                 <div key={g.group} className="rounded-xl border border-line bg-surface p-5">
@@ -240,7 +251,7 @@ export default function Home() {
         </div>
 
         {/* Education & leadership */}
-        <Section id="education" kicker="05 · Education" title="Education & leadership">
+        <Section id="education" kicker={ui.sections.education.kicker} title={ui.sections.education.title}>
           <div className="grid gap-8 md:grid-cols-2">
             <div className="space-y-6">
               {education.map((ed) => (
@@ -260,7 +271,7 @@ export default function Home() {
                 </div>
               ))}
               <div className="rounded-xl border border-line bg-surface p-5">
-                <h3 className="font-semibold">Interests</h3>
+                <h3 className="font-semibold">{ui.interestsTitle}</h3>
                 <div className="mt-3 flex flex-wrap gap-1.5">
                   {interests.map((i) => (
                     <Tag key={i}>{i}</Tag>
@@ -281,7 +292,7 @@ export default function Home() {
                 </div>
               ))}
               <div className="rounded-xl border border-line bg-surface p-5">
-                <h3 className="font-semibold">Languages</h3>
+                <h3 className="font-semibold">{ui.languagesTitle}</h3>
                 <ul className="mt-3 divide-y divide-line text-sm">
                   {languages.map((l) => (
                     <li key={l.name} className="flex justify-between gap-2 py-2">
@@ -295,46 +306,12 @@ export default function Home() {
           </div>
         </Section>
 
-
-        {/* Recommendations */}
-        <div className="bg-surface-2/50">
-          <Section id="recommendations" kicker="06 · Recommendations" title="What my professors say">
-            <div className="grid gap-6 md:grid-cols-2">
-              {recommendations.map((rec) => (
-                <figure key={rec.author} className="flex flex-col rounded-xl border border-line bg-surface p-6">
-                  <blockquote className="flex-1 space-y-3 text-[15px] leading-relaxed">
-                    {rec.quotes.map((q) => (
-                      <p key={q}>
-                        <span aria-hidden="true" className="mr-1 font-serif text-2xl leading-none text-accent">
-                          &ldquo;
-                        </span>
-                        {q}
-                      </p>
-                    ))}
-                  </blockquote>
-                  <figcaption className="mt-6 border-t border-line pt-4">
-                    <p className="font-semibold">{rec.author}</p>
-                    <p className="mt-0.5 text-sm text-muted">{rec.role}</p>
-                    <p className="mt-2 text-xs text-muted">{rec.context}</p>
-                  </figcaption>
-                </figure>
-              ))}
-            </div>
-            <p className="mt-6 text-xs text-muted">
-              Excerpts translated from French. The full letters are available on request.
-            </p>
-          </Section>
-        </div>
-
         {/* Contact */}
         <section id="contact" className="bg-navy text-white">
           <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 sm:py-20">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7fd6d8]">07 · Contact</p>
-            <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Let&apos;s build something together</h2>
-            <p className="mx-auto mt-4 max-w-xl text-white/75">
-              I am open to internships and junior roles in software engineering, data engineering, cloud/DevOps
-              and cloud security.
-            </p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7fd6d8]">{ui.contact.kicker}</p>
+            <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">{ui.contact.title}</h2>
+            <p className="mx-auto mt-4 max-w-xl text-white/75">{ui.contact.text}</p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
                 href={`mailto:${profile.email}`}
@@ -364,7 +341,7 @@ export default function Home() {
       </main>
 
       <footer className="border-t border-line py-6 text-center text-xs text-muted">
-        © {new Date().getFullYear()} {profile.name} · Built with Next.js, deployed on Vercel
+        © {new Date().getFullYear()} {profile.name} · {ui.footer}
       </footer>
     </>
   );
