@@ -249,56 +249,52 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
         {/* Education & leadership */}
         <Section id="education" kicker={ui.sections.education.kicker} title={ui.sections.education.title}>
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="space-y-6">
-              {education.map((ed) => (
-                <div key={ed.degree} className="rounded-xl border border-line bg-surface p-5">
-                  <p className="font-mono text-xs text-accent">{ed.period}</p>
-                  <h3 className="mt-1 font-semibold">{ed.degree}</h3>
-                  <p className="text-sm text-muted">
-                    {ed.school} · {ed.location}
-                  </p>
-                  {ed.details.length > 0 && (
-                    <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
-                      {ed.details.map((d) => (
-                        <li key={d}>{d}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-              <div className="rounded-xl border border-line bg-surface p-5">
-                <h3 className="font-semibold">{ui.interestsTitle}</h3>
-                <div className="mt-3 flex flex-wrap gap-1.5">
-                  {interests.map((i) => (
-                    <Tag key={i}>{i}</Tag>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              {leadership.map((l) => (
-                <div key={l.title} className="rounded-xl border border-line bg-surface p-5">
-                  <p className="font-mono text-xs text-accent">{l.period}</p>
-                  <h3 className="mt-1 font-semibold">{l.title}</h3>
+          <div className="grid gap-5 md:grid-cols-2">
+            {education.map((ed) => (
+              <div key={ed.degree} className="flex h-full flex-col rounded-xl border border-line bg-surface p-5">
+                <p className="font-mono text-xs text-accent">{ed.period}</p>
+                <h3 className="mt-1 font-semibold">{ed.degree}</h3>
+                <p className="text-sm text-muted">
+                  {ed.school} · {ed.location}
+                </p>
+                {ed.details.length > 0 && (
                   <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
-                    {l.points.map((p) => (
-                      <li key={p}>{p}</li>
+                    {ed.details.map((d) => (
+                      <li key={d}>{d}</li>
                     ))}
                   </ul>
-                </div>
-              ))}
-              <div className="rounded-xl border border-line bg-surface p-5">
-                <h3 className="font-semibold">{ui.languagesTitle}</h3>
-                <ul className="mt-3 divide-y divide-line text-sm">
-                  {languages.map((l) => (
-                    <li key={l.name} className="flex justify-between gap-2 py-2">
-                      <span>{l.name}</span>
-                      <span className="text-muted">{l.level}</span>
-                    </li>
+                )}
+              </div>
+            ))}
+            {leadership.map((l) => (
+              <div key={l.title} className="flex h-full flex-col rounded-xl border border-line bg-surface p-5">
+                <p className="font-mono text-xs text-accent">{l.period}</p>
+                <h3 className="mt-1 font-semibold">{l.title}</h3>
+                <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed text-muted marker:text-accent">
+                  {l.points.map((p) => (
+                    <li key={p}>{p}</li>
                   ))}
                 </ul>
               </div>
+            ))}
+            <div className="flex h-full flex-col rounded-xl border border-line bg-surface p-5">
+              <h3 className="font-semibold">{ui.interestsTitle}</h3>
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {interests.map((i) => (
+                  <Tag key={i}>{i}</Tag>
+                ))}
+              </div>
+            </div>
+            <div className="flex h-full flex-col rounded-xl border border-line bg-surface p-5">
+              <h3 className="font-semibold">{ui.languagesTitle}</h3>
+              <ul className="mt-3 divide-y divide-line text-sm">
+                {languages.map((l) => (
+                  <li key={l.name} className="flex justify-between gap-2 py-2">
+                    <span>{l.name}</span>
+                    <span className="text-muted">{l.level}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Section>
