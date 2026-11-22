@@ -17,8 +17,8 @@ export const en: Content = {
 
   about: {
     paragraphs: [
-      "I am a full-stack and cloud engineer intern at Atos and a final-year student in Computer Science & Telecommunications at École Polytechnique de Thiès, Senegal's leading engineering school.",
-      "EPT gave me a broad engineering foundation. Two years of common core in mathematics, algorithms and programming were followed by a specialisation in computer science and telecommunications: data science with Python, computer systems, networks, IoT, machine learning, cloud computing, security and data engineering, along with English, communication and project management.",
+      "I am a full-stack and cloud engineer intern at Atos and a final-year Computer Science engineering student at École Polytechnique de Thiès, Senegal's leading engineering school.",
+      "EPT gave me a broad engineering foundation. Two years of common core in mathematics, algorithms and programming were followed by a specialisation in computer science: data science with Python, computer systems, networks, IoT, machine learning, cloud computing, security and data engineering, along with English, communication and project management.",
       "At Atos, I apply these skills on projects for public-sector, banking and telecom clients: Java and Spring Boot services, data models, Docker deployments to AWS, CI/CD pipelines and secured APIs.",
       "My main areas of interest are cloud computing, data engineering, security and software development.",
     ],
@@ -190,7 +190,7 @@ export const en: Content = {
 
   education: [
     {
-      degree: "Engineering Degree – Computer Science & Telecommunications",
+      degree: "Engineering Degree – Computer Science",
       school: "École Polytechnique de Thiès (EPT)",
       location: "Thiès, Senegal",
       period: "Oct. 2022 – 2027",
@@ -204,7 +204,7 @@ export const en: Content = {
       school: "Lycée de Yeumbeul (LEID)",
       location: "Dakar, Senegal",
       period: "July 2022",
-      details: [],
+      details: ["Ranked 1st in the entire exam centre."],
     },
   ],
 
@@ -220,7 +220,10 @@ export const en: Content = {
     {
       title: "President – Newspaper Sub-Commission",
       period: "2023 – 2024",
-      points: ["Led a student editorial team and managed content production for the student body."],
+      points: [
+        "Led a student editorial team and managed content production for the student body.",
+        "Published two titles: Polybrève, a quarterly, and Polynews, the annual edition.",
+      ],
     },
   ],
 
@@ -242,7 +245,7 @@ export const en: Content = {
   ],
 
   languages: [
-    { name: "French", level: "Native" },
+    { name: "French", level: "Full proficiency · C2" },
     { name: "English", level: "Professional · C1" },
     { name: "Pulaar", level: "Native" },
     { name: "Wolof", level: "Fluent" },

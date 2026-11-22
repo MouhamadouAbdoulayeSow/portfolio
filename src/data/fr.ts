@@ -17,8 +17,8 @@ export const fr: Content = {
 
   about: {
     paragraphs: [
-      "Je suis stagiaire ingénieur full-stack et cloud chez Atos et élève-ingénieur en dernière année d'Informatique et Télécommunications à l'École Polytechnique de Thiès, la principale école d'ingénieurs du Sénégal.",
-      "L'EPT m'a donné une formation d'ingénieur généraliste. Deux années de tronc commun en mathématiques, algorithmique et programmation ont été suivies d'une spécialisation en informatique et télécommunications : data science avec Python, systèmes informatiques, réseaux, IoT, machine learning, cloud computing, sécurité et data engineering, ainsi qu'anglais, communication et gestion de projet.",
+      "Je suis stagiaire ingénieur full-stack et cloud chez Atos et élève-ingénieur en dernière année d'Informatique à l'École Polytechnique de Thiès, la principale école d'ingénieurs du Sénégal.",
+      "L'EPT m'a donné une formation d'ingénieur généraliste. Deux années de tronc commun en mathématiques, algorithmique et programmation ont été suivies d'une spécialisation en informatique : data science avec Python, systèmes informatiques, réseaux, IoT, machine learning, cloud computing, sécurité et data engineering, ainsi qu'anglais, communication et gestion de projet.",
       "Chez Atos, je mets ces compétences en pratique sur des projets pour des clients du secteur public, de la banque et des télécoms : services Java et Spring Boot, modèles de données, déploiements Docker sur AWS, pipelines CI/CD et API sécurisées.",
       "Mes principaux domaines d'intérêt sont le cloud computing, le data engineering, la sécurité et le développement logiciel.",
     ],
@@ -190,7 +190,7 @@ export const fr: Content = {
 
   education: [
     {
-      degree: "Diplôme d'ingénieur – Informatique et Télécommunications",
+      degree: "Diplôme d'ingénieur – Informatique",
       school: "École Polytechnique de Thiès (EPT)",
       location: "Thiès, Sénégal",
       period: "Oct. 2022 – 2027",
@@ -200,11 +200,11 @@ export const fr: Content = {
       ],
     },
     {
-      degree: "Baccalauréat scientifique – mention",
+      degree: "Baccalauréat scientifique – mention Bien",
       school: "Lycée de Yeumbeul (LEID)",
       location: "Dakar, Sénégal",
       period: "Juillet 2022",
-      details: [],
+      details: ["Classé 1er de tout le centre d'examen."],
     },
   ],
 
@@ -220,7 +220,10 @@ export const fr: Content = {
     {
       title: "Président – Sous-commission Journal",
       period: "2023 – 2024",
-      points: ["Direction d'une équipe éditoriale étudiante et gestion de la production de contenus pour les élèves."],
+      points: [
+        "Direction d'une équipe éditoriale étudiante et gestion de la production de contenus pour les élèves.",
+        "Publication de deux journaux : Polybrève, trimestriel, et Polynews, l'édition annuelle.",
+      ],
     },
   ],
 
@@ -242,7 +245,7 @@ export const fr: Content = {
   ],
 
   languages: [
-    { name: "Français", level: "Langue maternelle" },
+    { name: "Français", level: "Maîtrise complète · C2" },
     { name: "Anglais", level: "Professionnel · C1" },
     { name: "Pulaar", level: "Langue maternelle" },
     { name: "Wolof", level: "Courant" },
