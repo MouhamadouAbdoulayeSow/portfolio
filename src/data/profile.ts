@@ -269,3 +269,25 @@ export const languages = [
   { name: "Pulaar", level: "Native" },
   { name: "Wolof", level: "Fluent" },
 ];
+
+export const recommendations = [
+  {
+    author: "Pr. Abdoul Aziz Ciss",
+    role: "Lecturer-researcher in Cybersecurity & Cryptography, École Polytechnique de Thiès",
+    context: "Taught me Oracle & SQL database administration, computer security and cryptography",
+    quotes: [
+      "I observed great rigour, a well-developed analytical mind and a real ability to understand the underlying mechanisms in depth rather than simply applying them.",
+      "He is serious, reliable and appreciated by his peers; he communicates clearly and works professionally, both in a team and on his own.",
+      "I recommend him enthusiastically and without reservation.",
+    ],
+  },
+  {
+    author: "Pr. Ndeye Fatou Ngom, PhD",
+    role: "Lecturer-researcher in Mathematical Modelling & AI, head of the LTISI research team, École Polytechnique de Thiès",
+    context: "Taught me data analysis, machine learning, deep learning, computer vision and image processing",
+    quotes: [
+      "His interest in these fields, as well as in complementary disciplines such as cloud computing and cybersecurity, shows his willingness to broaden his skills and build a versatile computer-science profile.",
+      "I am convinced that he will make the most of a demanding academic environment and engage seriously in the activities and projects offered to him.",
+    ],
+  },
+];

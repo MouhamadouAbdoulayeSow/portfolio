@@ -4,6 +4,7 @@ import {
   experiences,
   interests,
   languages,
+  recommendations,
   leadership,
   profile,
   projects,
@@ -18,6 +19,7 @@ const nav = [
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#education", label: "Education" },
+  { href: "#recommendations", label: "Recommendations" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -294,10 +296,40 @@ export default function Home() {
         </Section>
 
 
+        {/* Recommendations */}
+        <div className="bg-surface-2/50">
+          <Section id="recommendations" kicker="06 · Recommendations" title="What my professors say">
+            <div className="grid gap-6 md:grid-cols-2">
+              {recommendations.map((rec) => (
+                <figure key={rec.author} className="flex flex-col rounded-xl border border-line bg-surface p-6">
+                  <blockquote className="flex-1 space-y-3 text-[15px] leading-relaxed">
+                    {rec.quotes.map((q) => (
+                      <p key={q}>
+                        <span aria-hidden="true" className="mr-1 font-serif text-2xl leading-none text-accent">
+                          &ldquo;
+                        </span>
+                        {q}
+                      </p>
+                    ))}
+                  </blockquote>
+                  <figcaption className="mt-6 border-t border-line pt-4">
+                    <p className="font-semibold">{rec.author}</p>
+                    <p className="mt-0.5 text-sm text-muted">{rec.role}</p>
+                    <p className="mt-2 text-xs text-muted">{rec.context}</p>
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+            <p className="mt-6 text-xs text-muted">
+              Excerpts translated from French. The full letters are available on request.
+            </p>
+          </Section>
+        </div>
+
         {/* Contact */}
         <section id="contact" className="bg-navy text-white">
           <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 sm:py-20">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7fd6d8]">06 · Contact</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7fd6d8]">07 · Contact</p>
             <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Let&apos;s build something together</h2>
             <p className="mx-auto mt-4 max-w-xl text-white/75">
               I am open to internships and junior roles in software engineering, data engineering, cloud/DevOps
