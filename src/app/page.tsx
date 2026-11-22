@@ -1,8 +1,5 @@
 import {
   about,
-  careerGoal,
-  certifications,
-  roadmapProjects,
   education,
   experiences,
   interests,
@@ -20,14 +17,15 @@ const nav = [
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#roadmap", label: "Roadmap" },
   { href: "#education", label: "Education" },
   { href: "#contact", label: "Contact" },
 ];
 
 const categoryOrder = ["Software", "Data", "Cloud & DevOps", "Security", "AI"];
 const sortedProjects = [...projects].sort(
-  (a, b) => categoryOrder.indexOf(a.domains[0]) - categoryOrder.indexOf(b.domains[0]),
+  (a, b) =>
+    Number(Boolean(a.status)) - Number(Boolean(b.status)) ||
+    categoryOrder.indexOf(a.domains[0]) - categoryOrder.indexOf(b.domains[0]),
 );
 
 export default function Home() {
@@ -191,7 +189,14 @@ export default function Home() {
                 key={p.title}
                 className="flex flex-col rounded-xl border border-line bg-surface p-5 transition hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.domains.join(" · ")}</span>
+                <div className="flex items-start justify-between gap-2">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{p.domains.join(" · ")}</span>
+                  {p.status && (
+                    <span className="shrink-0 whitespace-nowrap rounded bg-accent-soft px-2 py-0.5 text-[11px] font-medium text-accent">
+                      {p.status}
+                    </span>
+                  )}
+                </div>
                 <h3 className="mt-2 text-lg font-semibold">{p.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{p.description}</p>
                 <div className="mt-4 flex flex-wrap gap-1.5">
@@ -232,63 +237,8 @@ export default function Home() {
           </Section>
         </div>
 
-        {/* Roadmap */}
-        <Section id="roadmap" kicker="05 · Roadmap" title="Where I am heading">
-          <div className="grid gap-3 sm:grid-cols-3">
-            {[
-              { label: "Today", value: careerGoal.now },
-              { label: "Next", value: careerGoal.next },
-              { label: "Target", value: careerGoal.target },
-            ].map((step, i) => (
-              <div
-                key={step.label}
-                className={`rounded-xl border p-5 ${i === 2 ? "border-accent bg-accent-soft" : "border-line bg-surface"}`}
-              >
-                <p className="font-mono text-xs uppercase tracking-wider text-accent">
-                  {i + 1}. {step.label}
-                </p>
-                <p className="mt-2 font-semibold">{step.value}</p>
-              </div>
-            ))}
-          </div>
-
-          <h3 className="mt-12 text-lg font-semibold">Projects I am building next</h3>
-          <div className="mt-4 grid gap-5 lg:grid-cols-3">
-            {roadmapProjects.map((r) => (
-              <article key={r.title} className="flex flex-col rounded-xl border border-dashed border-line bg-surface p-5">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-accent">{r.domains}</span>
-                  <span className="shrink-0 rounded bg-surface-2 px-2 py-0.5 text-[11px] font-medium text-muted">
-                    {r.status}
-                  </span>
-                </div>
-                <h4 className="mt-2 font-semibold">{r.title}</h4>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{r.goal}</p>
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {r.stack.map((s) => (
-                    <Tag key={s}>{s}</Tag>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <h3 className="mt-12 text-lg font-semibold">Certification path</h3>
-          <ol className="mt-4 grid gap-3 sm:grid-cols-2">
-            {certifications.map((c) => (
-              <li key={c.name} className="flex items-start gap-3 rounded-xl border border-line bg-surface p-4">
-                <span className="mt-0.5 shrink-0 rounded bg-accent-soft px-2 py-0.5 font-mono text-[11px] text-accent">
-                  {c.stage}
-                </span>
-                <span className="text-sm">{c.name}</span>
-              </li>
-            ))}
-          </ol>
-        </Section>
-
         {/* Education & leadership */}
-        <div className="bg-surface-2/50">
-        <Section id="education" kicker="06 · Education" title="Education & leadership">
+        <Section id="education" kicker="05 · Education" title="Education & leadership">
           <div className="grid gap-8 md:grid-cols-2">
             <div className="space-y-6">
               {education.map((ed) => (
@@ -343,12 +293,11 @@ export default function Home() {
           </div>
         </Section>
 
-        </div>
 
         {/* Contact */}
         <section id="contact" className="bg-navy text-white">
           <div className="mx-auto max-w-5xl px-4 py-16 text-center sm:px-6 sm:py-20">
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7fd6d8]">07 · Contact</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-[#7fd6d8]">06 · Contact</p>
             <h2 className="mt-2 text-2xl font-semibold sm:text-3xl">Let&apos;s build something together</h2>
             <p className="mx-auto mt-4 max-w-xl text-white/75">
               I am open to internships and junior roles in software engineering, data engineering, cloud/DevOps

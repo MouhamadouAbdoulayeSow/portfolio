@@ -5,7 +5,7 @@ export const profile = {
   shortName: "M. A. SOW",
   role: "Software Engineer · Data · Cloud & DevOps · Security",
   tagline:
-    "Full-stack and cloud engineer at Atos and final-year engineering student. I build secure, data-driven software and automate how it is shipped to the cloud. My goal is to become a Cloud Security and Solutions Architect.",
+    "Full-stack and cloud engineer at Atos and final-year engineering student. I build secure, data-driven software and automate how it is shipped to the cloud.",
   location: "Thiès / Dakar, Senegal",
   email: "sowma@ept.edu.sn",
   github: "https://github.com/MouhamadouAbdoulayeSow",
@@ -17,8 +17,9 @@ export const profile = {
 export const about = {
   paragraphs: [
     "I am a full-stack and cloud engineer intern at Atos and a final-year student in Computer Science & Telecommunications at École Polytechnique de Thiès, Senegal's leading engineering school.",
-    "My work combines four areas. I design software with Java, Spring Boot and Python APIs. I build data pipelines with Kafka, PostgreSQL and MongoDB. I containerise and deploy services to AWS with Docker and CI/CD. I secure them with Keycloak, OAuth2, JWT and RBAC. At Atos, I ship these skills to production for public-sector, banking and telecom clients.",
-    "I already deploy workloads on Kubernetes and write infrastructure as code with Terraform. I am now moving towards DevSecOps and cloud security: least-privilege IAM, encryption, observability and security scanning in CI/CD. My long-term goal is to design secure, scalable cloud architectures as a Cloud Security and Solutions Architect.",
+    "EPT gave me a broad engineering foundation. Two years of common core in mathematics, algorithms and programming were followed by a specialisation in computer science and telecommunications: data science with Python, computer systems, networks, IoT, machine learning, cloud computing, security and data engineering, along with English, communication and project management.",
+    "At Atos, I apply these skills on projects for public-sector, banking and telecom clients: Java and Spring Boot services, data models, Docker deployments to AWS, CI/CD pipelines and secured APIs.",
+    "My main areas of interest are cloud computing, data engineering, security and software development.",
   ],
   stats: [
     { value: "2", label: "software engineering internships at Atos" },
@@ -83,6 +84,7 @@ export type Project = {
   description: string;
   stack: string[];
   link?: string;
+  status?: "In progress";
 };
 
 const repo = (name: string) => `https://github.com/MouhamadouAbdoulayeSow/${name}`;
@@ -152,11 +154,28 @@ export const projects: Project[] = [
     link: repo("FlaskProject_CV"),
   },
   {
-    title: "Plant Disease Detection",
-    domains: ["AI", "Software"],
-    description: "Deep-learning image classifier for plant diseases, served through a Django REST API.",
-    stack: ["Python", "PyTorch", "Django REST"],
-    link: repo("planteDiseaseDetection"),
+    title: "DevSecOps Pipeline",
+    domains: ["Cloud & DevOps", "Security", "Software"],
+    description: "CI/CD pipeline that scans, builds and deploys a Spring Boot API to Kubernetes with code, dependency and image scanning.",
+    stack: ["GitHub Actions", "Kubernetes", "Trivy", "Semgrep"],
+    link: repo("devsecops-springboot-pipeline"),
+    status: "In progress",
+  },
+  {
+    title: "Secure Cloud Data Pipeline",
+    domains: ["Data", "Cloud & DevOps", "Security"],
+    description: "Kafka and PySpark pipeline on AWS, provisioned with Terraform, with least-privilege IAM and KMS encryption.",
+    stack: ["Kafka", "PySpark", "Terraform", "AWS KMS"],
+    link: repo("secure-cloud-data-pipeline"),
+    status: "In progress",
+  },
+  {
+    title: "Cloud Anomaly Detection",
+    domains: ["Security", "Data", "Cloud & DevOps"],
+    description: "Analyses AWS CloudTrail and VPC Flow Logs to detect suspicious activity and raise alerts on a dashboard.",
+    stack: ["AWS CloudTrail", "Python", "Spark", "Grafana"],
+    link: repo("cloud-anomaly-detection"),
+    status: "In progress",
   },
 ];
 
@@ -218,7 +237,6 @@ export const leadership = [
     points: [
       "Organised hands-on AI workshops at the school's annual tech symposium.",
       "Guided fellow students to the Elements of AI and NVIDIA Deep Learning Institute certifications.",
-      "Promoted applied AI research on campus and encouraged students to publish their work.",
     ],
   },
   {
@@ -251,48 +269,3 @@ export const languages = [
   { name: "Pulaar", level: "Native" },
   { name: "Wolof", level: "Fluent" },
 ];
-
-export type RoadmapProject = {
-  title: string;
-  domains: string;
-  goal: string;
-  stack: string[];
-  status: "In progress" | "Planned";
-};
-
-export const roadmapProjects: RoadmapProject[] = [
-  {
-    title: "DevSecOps Pipeline for a Spring Boot Microservice",
-    domains: "Software · DevOps · Security",
-    goal: "Containerise a Java REST API with a multi-stage, non-root image and deploy it to Kubernetes through a CI/CD pipeline with code analysis, dependency scanning, image scanning and IaC scanning.",
-    stack: ["Java", "Spring Boot", "Docker", "Kubernetes", "GitHub Actions", "Semgrep", "Trivy", "Checkov"],
-    status: "Planned",
-  },
-  {
-    title: "Secure Cloud Data Pipeline with Terraform",
-    domains: "Data · Cloud · Security",
-    goal: "Ingest and process data with Kafka and PySpark on infrastructure fully provisioned with Terraform, using least-privilege IAM, S3 encryption with KMS, managed secrets and a CIS compliance audit with Prowler.",
-    stack: ["Kafka", "PySpark", "AWS S3", "Terraform", "KMS", "Vault", "Prowler", "Grafana"],
-    status: "Planned",
-  },
-  {
-    title: "Cloud Anomaly Detection & Security Audit",
-    domains: "Data · Cloud Security",
-    goal: "Analyse CloudTrail and VPC Flow Logs in a data pipeline to detect suspicious behaviour such as IAM privilege escalation or abnormal storage access, with alerts and remediation steps on a dashboard.",
-    stack: ["AWS CloudTrail", "VPC Flow Logs", "Python", "Spark", "ELK", "Grafana"],
-    status: "Planned",
-  },
-];
-
-export const certifications: { name: string; stage: string }[] = [
-  { name: "AWS Certified Solutions Architect – Associate", stage: "Next" },
-  { name: "HashiCorp Certified: Terraform Associate", stage: "Next" },
-  { name: "CompTIA Security+ or AWS Certified Security – Specialty", stage: "Then" },
-  { name: "CKA, then CKS – Kubernetes Administrator & Security", stage: "Later" },
-];
-
-export const careerGoal = {
-  now: "Software · Data · Cloud & DevOps",
-  next: "DevSecOps / Cloud Security Engineer",
-  target: "Cloud Security Architect / Solutions Architect",
-};
