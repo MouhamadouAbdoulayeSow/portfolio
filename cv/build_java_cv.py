@@ -25,19 +25,17 @@ def chips(strong, normal):
 
 GROUPS = {
     "java": ("Java &amp; Spring", ["Java 17", "Spring Boot", "Spring Data JPA", "Spring Security"],
-             ["POO", "Spring MVC", "Hibernate", "Spring Cloud", "OpenFeign", "Bean Validation", "Lombok"]),
+             ["POO", "Spring MVC", "Hibernate", "Spring Cloud", "OpenFeign", "Bean Validation", "Lombok", "Gradle"]),
     "api": ("API &amp; architecture", ["API REST", "Microservices", "Apache Kafka"],
-            ["OpenAPI / Swagger", "Spring Cloud Gateway", "Eureka", "Config Server", "Systèmes distribués"]),
-    "sql": ("SQL &amp; bases de données", ["SQL", "PostgreSQL", "MySQL"], ["MongoDB", "Redis", "Flyway", "H2"]),
-    "tests": ("Tests &amp; qualité", ["JUnit 5", "Mockito"], ["Spring Boot Test", "Postman", "Tests fonctionnels"]),
+            ["RabbitMQ", "OpenAPI / Swagger", "Spring Cloud Gateway", "Eureka", "Config Server", "Systèmes distribués"]),
+    "sql": ("SQL &amp; bases de données", ["SQL", "PostgreSQL", "MySQL"], ["Oracle", "SQL Server", "MongoDB", "Redis", "Flyway", "H2"]),
+    "tests": ("Tests &amp; qualité", ["JUnit 5", "Mockito", "Testcontainers"], ["Spring Boot Test", "MockMvc", "Vitest", "Postman", "Tests fonctionnels"]),
     "devops": ("Build, CI/CD &amp; DevOps", ["Maven", "Git", "Docker", "CI/CD"],
                ["GitHub Actions", "GitLab CI", "Jenkins", "Docker Compose", "Kubernetes", "AWS EC2, S3 &amp; ECR", "Linux"]),
-    "front": ("Front-end", ["Angular", "React", "TypeScript"], ["JavaScript", "HTML5", "CSS3", "Tailwind CSS"]),
-    "front_vue": ("Front-end", ["Angular", "React", "TypeScript", "JavaScript", "HTML5", "CSS3"],
-                  ["Vue.js 3, en formation", "Tailwind CSS", "Responsive design"]),
+    "front": ("Front-end", ["Angular", "React", "Vue.js 3"], ["TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"]),
+    "front_vue": ("Front-end", ["Vue.js 3", "JavaScript", "HTML5", "CSS3", "Angular", "React"],
+                  ["TypeScript", "Composition API", "Vite", "Vitest", "Tailwind CSS", "Responsive design"]),
     "methods": ("Méthodes &amp; sécurité", ["Agile / Scrum"], ["Jira", "Confluence", "UML", "JWT", "OAuth2", "Keycloak", "RBAC"]),
-    "learning": ("En apprentissage", [], ["Gradle", "RabbitMQ", "Testcontainers"]),
-    "learning_vue": ("En apprentissage", [], ["Vue.js 3", "Gradle", "RabbitMQ", "Testcontainers"]),
 }
 
 VARIANTS = {
@@ -47,24 +45,26 @@ VARIANTS = {
         "tags": ["Java 17", "Spring Boot", "API REST", "Microservices", "JPA / Hibernate", "Docker · CI/CD"],
         "mini": "Ingénieur logiciel Java · Spring Boot",
         "groups": ["java", "api", "sql", "tests", "devops"],
-        "groups2": ["front", "methods", "learning"],
+        "groups2": ["front", "methods"],
+        "projects_title": "Projets Java sélectionnés",
         "profile": """Ingénieur logiciel Java, stagiaire chez <b>Atos</b> et élève-ingénieur en dernière année à l'École Polytechnique de Thiès.
       Je pratique <b>Java, Spring Boot, Docker et la CI/CD depuis deux ans et demi</b>, à l'EPT, en stage et dans mes projets.
       Je conçois des <b>services backend et des API REST</b> sécurisées, des <b>architectures microservices</b> avec Spring Cloud et Kafka,
-      des modèles de données <b>SQL avec JPA / Hibernate</b>, je les teste avec <b>JUnit et Mockito</b> et je les livre avec Maven, Docker et des pipelines CI/CD.
+      des modèles de données <b>SQL avec JPA / Hibernate</b>, je les teste avec <b>JUnit, Mockito et Testcontainers</b> et je les livre avec Maven, Docker et des pipelines CI/CD.
       Habitué au travail en équipe <b>Agile/Scrum</b>.""",
     },
     "CV_Mouhamadou_Abdoulaye_SOW_Java_VueJS_FR.html": {
         "title": "CV – Mouhamadou Abdoulaye SOW – Développeur Java / Vue.js",
         "role": "Développeur Java full-stack · Spring Boot · Front-end JavaScript",
-        "tags": ["Java 17", "Spring Boot", "API REST", "Angular · React · Vue.js", "HTML5 · CSS3", "Docker · CI/CD"],
+        "tags": ["Java 17", "Spring Boot", "API REST", "Vue.js 3", "JavaScript · HTML5 · CSS3", "Docker · CI/CD"],
         "mini": "Développeur Java full-stack",
-        "groups": ["java", "front_vue", "api", "sql"],
-        "groups2": ["tests", "devops", "methods"],
+        "groups": ["java", "front_vue", "api", "sql", "tests"],
+        "groups2": ["devops", "methods"],
+        "projects_title": "Projets sélectionnés",
         "profile": """Développeur Java full-stack, stagiaire chez <b>Atos</b> et élève-ingénieur en dernière année à l'École Polytechnique de Thiès.
       Je pratique <b>Java, Spring Boot, Docker et la CI/CD depuis deux ans et demi</b>, à l'EPT, en stage et dans mes projets.
       Côté back-end, je conçois des <b>API REST</b> et des <b>microservices Spring Boot</b> avec JPA et SQL ; côté front-end, je réalise des
-      interfaces responsives en <b>Angular, React, TypeScript, HTML5 et CSS3</b>, et je me forme à <b>Vue.js 3</b>.
+      interfaces responsives en <b>Vue.js 3</b>, Angular et React, avec <b>JavaScript, TypeScript, HTML5 et CSS3</b>.
       Livraison avec Git, Maven, Docker et la CI/CD, en équipe <b>Agile/Scrum</b>.""",
     },
 }
@@ -89,7 +89,7 @@ PAGE1_MAIN = """
           <li><b>Maintenance corrective et évolutive</b> de FONSIS, plateforme nationale de gestion des investissements, sur demande du DSI du client.</li>
           <li>Maintenance des <b>pipelines CI/CD</b> GitHub : build, tests et livraison des services.</li>
           <li>Déploiement et exploitation de services conteneurisés avec <b>Docker</b> et Portainer sur <b>AWS</b>.</li>
-          <li>Intégration d'<b>Atos Digital Push</b>, plateforme de notifications SMS, e-mail, WhatsApp et vocales utilisée par Orange, la BCEAO et YAS.</li>
+          <li>Intégration d'<b>Atos Digital Push</b>, plateforme de notifications SMS, e-mail, WhatsApp et vocales utilisée par Orange, la BCEAO et YAS, avec des <b>tests d'intégration Testcontainers</b>.</li>
           <li>Écrans front-end <b>Angular</b> et tableaux de bord Power BI de suivi des indicateurs.</li>
         </ul>
       </div>
@@ -101,10 +101,6 @@ PAGE1_MAIN = """
           <li>Conception de modèles de données <b>PostgreSQL</b> et MongoDB et de leurs requêtes ; conteneurisation des services avec <b>Docker</b>.</li>
           <li>Tests fonctionnels et correction d'anomalies en préproduction, en équipe <b>Agile/Scrum</b> avec Jira et Confluence.</li>
         </ul>
-      </div>
-      <div class="entry">
-        <div class="entry-head"><span class="entry-title">Stagiaire ingénieur logiciel – Projet de fin d'études</span><span class="entry-date"><span class="badge">À venir</span> Déc. 2026 – Mai 2027</span></div>
-        <div class="entry-org"><b>Atos</b> · Dakar, Sénégal</div>
       </div>
     </section>
 
@@ -161,7 +157,7 @@ PAGE2 = """
 
   <main>
     <section>
-      <h2>Projets Java sélectionnés</h2>
+      <h2>{projects_title}</h2>
 
       <div class="project">
         <div class="entry-title">LMS Universities – Plateforme e-learning de l'EPT en microservices, déployée en ligne</div>
@@ -176,15 +172,17 @@ PAGE2 = """
 
       <div class="project">
         <div class="entry-title">MS Platform – Service d'authentification sécurisé</div>
-        <div class="stack">Java · Spring Boot · Spring Security · JWT · Spring Data JPA · PostgreSQL · Flyway · Redis · Kafka · JUnit 5 · Mockito</div>
-        Jetons JWT d'accès et de rafraîchissement, révocation par liste noire Redis, contrôle d'accès par rôles, réinitialisation du mot de passe par e-mail,
-        migrations de schéma <b>Flyway</b> et tests unitaires du service et du contrôleur avec <b>JUnit 5 et Mockito</b>.
+        <div class="stack">Java · Spring Boot · Spring Security · JWT · Spring Data JPA · PostgreSQL · Flyway · Redis · Kafka · JUnit 5 · Mockito · Testcontainers</div>
+        Jetons JWT d'accès et de rafraîchissement, révocation par liste noire Redis, contrôle d'accès par rôles, réinitialisation du mot de passe par e-mail
+        et migrations <b>Flyway</b>. <b>36 tests</b> : unitaires avec <b>JUnit 5 et Mockito</b>, couche web avec MockMvc et la vraie configuration de sécurité,
+        intégration avec <b>Testcontainers</b> sur PostgreSQL, Redis et Kafka.
       </div>
 
       <div class="project">
-        <div class="entry-title">Microcommerce – API REST de catalogue produits</div>
-        <div class="stack">Java · Spring Boot · Spring Data JPA · H2 · Bean Validation · springdoc-openapi · Maven</div>
-        Opérations CRUD et requêtes filtrées, validation des entrées, exceptions métier et documentation <b>Swagger / OpenAPI</b>.
+        <div class="entry-title">Microcommerce – Catalogue produits full-stack</div>
+        <div class="stack">Vue.js 3 · Vite · JavaScript · HTML5 · CSS3 · Vitest · Spring Boot · Spring Data JPA · H2 · springdoc-openapi · JUnit 5 · Mockito</div>
+        Front-end <b>Vue.js 3</b> en Composition API, responsive, avec recherche, filtre par prix et formulaire validé, branché sur une <b>API REST Spring Boot</b> :
+        CRUD, validation, erreurs JSON par champ, CORS et documentation Swagger. Tests <b>Vitest</b> côté front, <b>MockMvc et Mockito</b> côté API.
       </div>
 
       <div class="project">
@@ -249,7 +247,7 @@ for filename, v in VARIANTS.items():
 
   <main>{PAGE1_MAIN.format(profile=v['profile'])}  </main>
 </div>
-{PAGE2.format(mini=v['mini'], groups2=render_groups(v['groups2']))}
+{PAGE2.format(mini=v['mini'], groups2=render_groups(v['groups2']), projects_title=v['projects_title'])}
 </body>
 </html>
 """

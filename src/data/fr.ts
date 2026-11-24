@@ -12,14 +12,14 @@ export const fr: Content = {
     github: "https://github.com/MouhamadouAbdoulayeSow",
     linkedin: "https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/",
     cv: "/CV_Mouhamadou_Abdoulaye_SOW_Java_FR.pdf",
-    focus: ["Java · Spring Boot", "API REST & microservices", "JPA / Hibernate · SQL", "Docker · CI/CD", "Angular · React"],
+    focus: ["Java · Spring Boot", "API REST & microservices", "JPA / Hibernate · SQL", "Vue.js · Angular · React", "Docker · CI/CD"],
   },
 
   about: {
     paragraphs: [
       "Je suis développeur Java full-stack, stagiaire chez Atos et élève-ingénieur en dernière année d'Informatique à l'École Polytechnique de Thiès, la principale école d'ingénieurs du Sénégal.",
       "Je pratique Java, Spring Boot, Docker et la CI/CD depuis deux ans et demi. J'ai commencé avec les cours et projets de l'EPT en programmation orientée objet, JPA, architecture logicielle et DevOps, puis j'ai continué en stage chez Atos et dans mes projets personnels.",
-      "Chez Atos, j'ai développé des API REST sécurisées avec Spring Boot, conçu des modèles de données PostgreSQL et MongoDB, réalisé des écrans Angular et React et livré des services conteneurisés sur AWS par des pipelines CI/CD, au sein d'équipes Agile/Scrum.",
+      "Chez Atos, j'ai développé des API REST sécurisées avec Spring Boot, conçu des modèles de données PostgreSQL et MongoDB, réalisé des écrans Angular et React, écrit des tests d'intégration avec Testcontainers et livré des services conteneurisés sur AWS par des pipelines CI/CD, au sein d'équipes Agile/Scrum.",
       "Ce qui me motive : un code propre et testé, des microservices bien découpés, la sécurité applicative et la performance.",
     ],
     stats: [
@@ -31,15 +31,6 @@ export const fr: Content = {
 
   experiences: [
     {
-      title: "Stagiaire ingénieur logiciel – Projet de fin d'études",
-      company: "Atos",
-      location: "Dakar, Sénégal",
-      period: "Déc. 2026 – Mai 2027",
-      upcoming: true,
-      points: ["Projet de fin d'études d'ingénieur et projets clients chez Atos."],
-      stack: [],
-    },
-    {
       title: "Stagiaire développeur full-stack – FONSIS & Atos Digital Push",
       company: "Atos",
       location: "Dakar, Sénégal",
@@ -49,9 +40,10 @@ export const fr: Content = {
         "Déploiement et exploitation de services conteneurisés avec Docker et Portainer sur AWS.",
         "Maintenance des pipelines CI/CD GitHub qui automatisent le build, les tests et la livraison.",
         "Intégration d'Atos Digital Push, plateforme de notifications multicanal pour des campagnes SMS, e-mail, WhatsApp et vocales utilisée par Orange, la BCEAO et YAS.",
+        "Tests d'intégration avec Testcontainers pendant l'intégration d'Atos Digital Push.",
         "Création de tableaux de bord Power BI pour suivre les indicateurs clés.",
       ],
-      stack: ["Docker", "Portainer", "AWS", "GitHub CI/CD", "API REST", "Power BI", "Angular"],
+      stack: ["Docker", "Portainer", "AWS", "GitHub CI/CD", "Testcontainers", "API REST", "Angular", "Power BI"],
     },
     {
       title: "Stagiaire développeur full-stack – FONSIS",
@@ -78,15 +70,15 @@ export const fr: Content = {
     {
       title: "MS Platform – Service d'authentification",
       domains: ["Software", "Security"],
-      description: "Service Spring Security avec jetons JWT d'accès et de rafraîchissement, rôles, révocation par Redis, migrations Flyway et tests JUnit et Mockito.",
-      stack: ["Java", "Spring Security", "JPA", "Flyway", "JUnit", "Mockito"],
+      description: "Service Spring Security avec jetons JWT, rôles, révocation par Redis et migrations Flyway, couvert par 36 tests JUnit 5, Mockito et Testcontainers.",
+      stack: ["Java", "Spring Security", "JPA", "JUnit 5", "Mockito", "Testcontainers"],
       link: repo("MS_Platform"),
     },
     {
-      title: "Microcommerce – API produits",
+      title: "Microcommerce – Catalogue full-stack",
       domains: ["Software"],
-      description: "API REST Spring Boot avec Spring Data JPA, validation des entrées, gestion des erreurs et documentation OpenAPI.",
-      stack: ["Spring Boot", "Spring Data JPA", "Bean Validation", "Swagger"],
+      description: "Front-end Vue.js 3 branché sur une API REST Spring Boot : recherche, filtres, CRUD avec validation, tests JUnit, Mockito et Vitest.",
+      stack: ["Vue.js 3", "Spring Boot", "Spring Data JPA", "Vitest", "Mockito"],
       link: repo("microcommerce"),
     },
     {
@@ -137,37 +129,33 @@ export const fr: Content = {
   skills: [
     {
       group: "Java & Spring",
-      items: ["Java 17", "POO", "Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "Spring Security", "Spring Cloud", "OpenFeign", "Maven", "Lombok"],
+      items: ["Java 17", "POO", "Spring Boot", "Spring MVC", "Spring Data JPA", "Hibernate", "Spring Security", "Spring Cloud", "OpenFeign", "Maven", "Gradle", "Lombok"],
       core: ["Java 17", "Spring Boot", "Spring Data JPA", "Spring Security"],
     },
     {
       group: "API & architecture",
-      items: ["API REST", "OpenAPI / Swagger", "Microservices", "Spring Cloud Gateway", "Eureka", "Apache Kafka", "Architecture en couches", "Postman"],
+      items: ["API REST", "OpenAPI / Swagger", "Microservices", "Spring Cloud Gateway", "Eureka", "Apache Kafka", "RabbitMQ", "Architecture en couches", "Postman"],
       core: ["API REST", "Microservices", "Apache Kafka"],
     },
     {
       group: "Bases de données",
-      items: ["SQL", "PostgreSQL", "MySQL", "MongoDB", "Redis", "Flyway", "H2"],
+      items: ["SQL", "PostgreSQL", "MySQL", "Oracle", "SQL Server", "MongoDB", "Redis", "Flyway", "H2"],
       core: ["SQL", "PostgreSQL", "MySQL"],
     },
     {
       group: "Front-end",
-      items: ["TypeScript", "JavaScript", "Angular", "React", "HTML5", "CSS3", "Tailwind CSS"],
-      core: ["Angular", "React", "TypeScript"],
+      items: ["Vue.js 3", "Angular", "React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"],
+      core: ["Vue.js 3", "Angular", "React", "JavaScript"],
     },
     {
       group: "Tests & DevOps",
-      items: ["JUnit 5", "Mockito", "Spring Boot Test", "Git", "GitHub Actions", "GitLab CI", "Jenkins", "Docker", "Docker Compose", "Kubernetes", "AWS EC2, S3 & ECR", "Linux"],
-      core: ["JUnit 5", "Mockito", "Docker", "Git"],
+      items: ["JUnit 5", "Mockito", "Testcontainers", "Spring Boot Test", "Vitest", "Git", "GitHub Actions", "GitLab CI", "Jenkins", "Docker", "Docker Compose", "Kubernetes", "AWS EC2, S3 & ECR", "Linux"],
+      core: ["JUnit 5", "Mockito", "Testcontainers", "Docker"],
     },
     {
       group: "Méthodes & sécurité",
       items: ["Agile / Scrum", "Jira", "Confluence", "UML", "JWT", "OAuth2", "Keycloak", "RBAC"],
       core: ["Agile / Scrum", "JWT"],
-    },
-    {
-      group: "En apprentissage",
-      items: ["Vue.js 3", "Gradle", "RabbitMQ", "Testcontainers"],
     },
   ],
 
@@ -232,7 +220,7 @@ export const fr: Content = {
     meta: {
       title: "Mouhamadou Abdoulaye SOW – Portfolio",
       description:
-        "Développeur Java full-stack : Spring Boot, API REST, microservices, JPA, Angular et React, Docker et CI/CD.",
+        "Développeur Java full-stack : Spring Boot, API REST, microservices, JPA, Vue.js, Angular et React, Docker et CI/CD.",
     },
     nav: { about: "Profil", experience: "Expérience", projects: "Projets", skills: "Compétences", education: "Formation", contact: "Contact" },
     switchLabel: "EN",
