@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>CV – Mouhamadou Abdoulaye SOW – Développeur Java / Vue.js</title>
+<style>
+  @page { size: A4; margin: 0; }
+  :root {
+    --navy:#14304D; --teal:#0E8388; --teal-soft:#E6F2F2; --side:#F3F6F8;
+    --text:#26323D; --muted:#66727D; --rule:#D5E0E3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: "Noto Sans", "Ubuntu Sans", Arial, sans-serif; color: var(--text); font-size: 8.7pt; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; display: grid; grid-template-columns: 64mm 1fr; grid-template-rows: auto 1fr; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+
+  /* Header */
+  header { grid-column: 1 / -1; background: var(--navy); color: #fff; padding: 9mm 12mm 7mm; position: relative; }
+  header::after { content:""; position:absolute; left:0; right:0; bottom:0; height:2.2mm; background: var(--teal); }
+  header h1 { margin: 0; font-family: "Ubuntu Sans", "Noto Sans", sans-serif; font-size: 25pt; font-weight: 700; letter-spacing: .4px; }
+  header .role { margin-top: 1.5mm; font-size: 11pt; color: #BFE3E3; font-weight: 500; }
+  header .tags { margin-top: 3mm; display: flex; flex-wrap: wrap; gap: 1.6mm; }
+  header .tags span { border: 1px solid rgba(255,255,255,.35); border-radius: 10px; padding: .5mm 2.6mm; font-size: 8pt; color: #fff; }
+  .mini-header { grid-column: 1 / -1; background: var(--navy); color:#fff; padding: 4mm 12mm; font-family: "Ubuntu Sans", sans-serif; font-size: 10.5pt; display:flex; justify-content: space-between; position: relative; }
+  .mini-header::after { content:""; position:absolute; left:0; right:0; bottom:0; height:1.4mm; background: var(--teal); }
+  .mini-header span:last-child { color:#BFE3E3; font-size: 9pt; }
+
+  /* Sidebar */
+  aside { background: var(--side); padding: 7mm 6mm 6mm 8mm; border-right: 1px solid var(--rule); }
+  aside h3 { font-family: "Ubuntu Sans", sans-serif; color: var(--navy); font-size: 9.6pt; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 2mm; padding-bottom: 1mm; border-bottom: 1.4px solid var(--teal); }
+  aside section { margin-bottom: 5.5mm; }
+  .contact-line { display: flex; gap: 2mm; align-items: flex-start; margin-bottom: 1.6mm; word-break: break-word; font-size: 7.9pt; }
+  .contact-line svg { flex: 0 0 auto; width: 3.4mm; height: 3.4mm; margin-top: .5mm; fill: var(--teal); }
+  .contact-line a { color: var(--text); text-decoration: none; }
+  .skill-group { margin-bottom: 2.6mm; }
+  .skill-group b { display:block; color: var(--navy); font-size: 8.4pt; margin-bottom: .8mm; }
+  .chips { display: flex; flex-wrap: wrap; gap: 1.1mm; }
+  .chips span { background: #fff; border: 1px solid var(--rule); border-radius: 3px; padding: .2mm 1.6mm; font-size: 7.8pt; }
+  .chips span.strong { background: var(--teal-soft); border-color: #B7D9D9; color: #0B5F63; font-weight: 600; }
+  .lang { display:flex; justify-content: space-between; align-items:center; margin-bottom: 1.3mm; }
+  .dots { display:flex; gap: 1mm; }
+  .dots i { width: 2.3mm; height: 2.3mm; border-radius: 50%; background: var(--teal); display:block; }
+  .dots i.off { background: #C9D5D8; }
+  .lang small { color: var(--muted); display:block; font-size: 7.6pt; }
+  .avail { background: var(--navy); color: #fff; border-radius: 4px; padding: 3mm 3.2mm; font-size: 8.2pt; }
+  .avail b { color: #BFE3E3; display:block; font-size: 8.6pt; margin-bottom: .6mm; }
+  aside ul { margin: 0; padding-left: 3.6mm; }
+  aside li { margin-bottom: 1mm; }
+
+  /* Main */
+  main { padding: 7mm 11mm 6mm 8mm; }
+  main h2 { font-family: "Ubuntu Sans", sans-serif; color: var(--navy); font-size: 11.2pt; text-transform: uppercase; letter-spacing: 1.1px; margin: 0 0 2.4mm; display: flex; align-items: center; gap: 2.5mm; }
+  main h2::after { content:""; flex: 1; height: 1.3px; background: var(--rule); }
+  main section { margin-bottom: 5mm; }
+  .entry { margin-bottom: 3.4mm; }
+  .entry-head { display: flex; justify-content: space-between; gap: 3mm; align-items: baseline; }
+  .entry-title { font-weight: 700; color: var(--navy); font-size: 9.4pt; }
+  .entry-date { color: var(--teal); font-weight: 600; font-size: 8.2pt; white-space: nowrap; }
+  .entry-org { color: var(--muted); font-size: 8.4pt; margin-bottom: 1mm; }
+  .entry-org b { color: var(--text); }
+  main ul { margin: .8mm 0 0; padding-left: 4mm; }
+  main li { margin-bottom: .9mm; }
+  main li::marker { color: var(--teal); }
+  .profile { text-align: justify; }
+  .stack { color: var(--teal); font-size: 8pt; font-weight: 600; margin: .4mm 0 .6mm; }
+  .project { margin-bottom: 3.2mm; padding-left: 3mm; border-left: 2px solid var(--teal-soft); }
+  .project .entry-title { font-size: 9.2pt; }
+  .highlights { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2.5mm; margin-top: 2.6mm; }
+  .highlights div { background: var(--teal-soft); border-radius: 4px; padding: 2mm 2.4mm; font-size: 8pt; }
+  .highlights b { display:block; color: var(--navy); font-size: 12pt; line-height: 1.15; }
+  .badge { display:inline-block; background: var(--teal-soft); color:#0B5F63; font-size: 7.4pt; font-weight:600; border-radius: 3px; padding: 0 1.6mm; margin-left: 1.5mm; vertical-align: 1px; }
+  .quality { margin-bottom: 1.6mm; }
+  .quality b { color: var(--navy); display:block; font-size: 8.3pt; }
+  .quality span { color: var(--muted); font-size: 7.7pt; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <h1>Mouhamadou Abdoulaye SOW</h1>
+    <div class="role">Développeur Java full-stack · Spring Boot · Front-end JavaScript</div>
+    <div class="tags"><span>Java 17</span><span>Spring Boot</span><span>API REST</span><span>Angular · React · Vue.js</span><span>HTML5 · CSS3</span><span>Docker · CI/CD</span></div>
+  </header>
+
+  <aside>
+    <section>
+      <h3>Contact</h3>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M2 5h20v14H2zm2 2v.5l8 5 8-5V7zm16 2.8-8 5-8-5V17h16z"/></svg><a style="font-size:7.3pt" href="mailto:sowma@ept.edu.sn">sowma@ept.edu.sn</a></div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>+221 77 780 50 07</div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Thiès / Dakar, Sénégal</div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2.5 7v7.5H9V10zm1.2-3.8a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zM11 10v7.5h2.5v-4c0-1 .4-1.8 1.5-1.8s1.3.9 1.3 1.8v4h2.5v-4.6c0-2.3-1.3-3.1-2.9-3.1-1.3 0-2 .6-2.4 1.2V10z"/></svg><a href="https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/">linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374</a></div>
+      <div class="contact-line"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.4-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><a href="https://github.com/MouhamadouAbdoulayeSow">github.com/MouhamadouAbdoulayeSow</a></div>
+    </section>
+
+    <section>
+      <h3>Compétences techniques</h3>
+      <div class="skill-group"><b>Java &amp; Spring</b>
+        <div class="chips"><span class="strong">Java 17</span><span class="strong">Spring Boot</span><span class="strong">Spring Data JPA</span><span class="strong">Spring Security</span><span>POO</span><span>Spring MVC</span><span>Hibernate</span><span>Spring Cloud</span><span>OpenFeign</span><span>Bean Validation</span><span>Lombok</span></div></div>
+      <div class="skill-group"><b>Front-end</b>
+        <div class="chips"><span class="strong">Angular</span><span class="strong">React</span><span class="strong">TypeScript</span><span class="strong">JavaScript</span><span class="strong">HTML5</span><span class="strong">CSS3</span><span>Vue.js 3, en formation</span><span>Tailwind CSS</span><span>Responsive design</span></div></div>
+      <div class="skill-group"><b>API &amp; architecture</b>
+        <div class="chips"><span class="strong">API REST</span><span class="strong">Microservices</span><span class="strong">Apache Kafka</span><span>OpenAPI / Swagger</span><span>Spring Cloud Gateway</span><span>Eureka</span><span>Config Server</span><span>Systèmes distribués</span></div></div>
+      <div class="skill-group"><b>SQL &amp; bases de données</b>
+        <div class="chips"><span class="strong">SQL</span><span class="strong">PostgreSQL</span><span class="strong">MySQL</span><span>MongoDB</span><span>Redis</span><span>Flyway</span><span>H2</span></div></div>
+    </section>
+  </aside>
+
+  <main>
+    <section>
+      <h2>Profil</h2>
+      <p class="profile">Développeur Java full-stack, stagiaire chez <b>Atos</b> et élève-ingénieur en dernière année à l'École Polytechnique de Thiès.
+      Je pratique <b>Java, Spring Boot, Docker et la CI/CD depuis deux ans et demi</b>, à l'EPT, en stage et dans mes projets.
+      Côté back-end, je conçois des <b>API REST</b> et des <b>microservices Spring Boot</b> avec JPA et SQL ; côté front-end, je réalise des
+      interfaces responsives en <b>Angular, React, TypeScript, HTML5 et CSS3</b>, et je me forme à <b>Vue.js 3</b>.
+      Livraison avec Git, Maven, Docker et la CI/CD, en équipe <b>Agile/Scrum</b>.</p>
+      <div class="highlights">
+        <div><b>2,5 ans</b>de pratique Java, Spring Boot, Docker et CI/CD</div>
+        <div><b>2</b>stages de développeur full-stack chez Atos</div>
+        <div><b>10</b>services Spring Boot dans le projet LMS</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Expérience</h2>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Stagiaire développeur full-stack – FONSIS &amp; Atos Digital Push</span><span class="entry-date">Juil. 2026 – Nov. 2026</span></div>
+        <div class="entry-org"><b>Atos</b> · Dakar, Sénégal</div>
+        <ul>
+          <li><b>Maintenance corrective et évolutive</b> de FONSIS, plateforme nationale de gestion des investissements, sur demande du DSI du client.</li>
+          <li>Maintenance des <b>pipelines CI/CD</b> GitHub : build, tests et livraison des services.</li>
+          <li>Déploiement et exploitation de services conteneurisés avec <b>Docker</b> et Portainer sur <b>AWS</b>.</li>
+          <li>Intégration d'<b>Atos Digital Push</b>, plateforme de notifications SMS, e-mail, WhatsApp et vocales utilisée par Orange, la BCEAO et YAS.</li>
+          <li>Écrans front-end <b>Angular</b> et tableaux de bord Power BI de suivi des indicateurs.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Stagiaire développeur full-stack – FONSIS</span><span class="entry-date">Juil. 2025 – Oct. 2025</span></div>
+        <div class="entry-org"><b>Atos</b> · Dakar, Sénégal</div>
+        <ul>
+          <li>Développement d'<b>API REST</b> sécurisées avec <b>Java et Spring Boot</b> et d'écrans <b>Angular</b> et <b>React</b> pour des applications web d'entreprise.</li>
+          <li>Conception de modèles de données <b>PostgreSQL</b> et MongoDB et de leurs requêtes ; conteneurisation des services avec <b>Docker</b>.</li>
+          <li>Tests fonctionnels et correction d'anomalies en préproduction, en équipe <b>Agile/Scrum</b> avec Jira et Confluence.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Stagiaire ingénieur logiciel – Projet de fin d'études</span><span class="entry-date"><span class="badge">À venir</span> Déc. 2026 – Mai 2027</span></div>
+        <div class="entry-org"><b>Atos</b> · Dakar, Sénégal</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Formation</h2>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Diplôme d'ingénieur – Informatique, Bac+5</span><span class="entry-date">Oct. 2022 – 2027</span></div>
+        <div class="entry-org"><b>École Polytechnique de Thiès (EPT)</b> · Thiès, Sénégal · niveau Master</div>
+        <ul>
+          <li><b>Génie logiciel :</b> programmation orientée objet et Java, Spring Boot et JPA, architecture logicielle moderne, bases de données distribuées, DevOps et systèmes cloud-native.</li>
+          <li><b>Aussi :</b> algorithmique, réseaux, cryptographie et cybersécurité, ML/DL ; 2 années de classes préparatoires en mathématiques, physique et programmation.</li>
+        </ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Baccalauréat scientifique – mention Bien</span><span class="entry-date">Juillet 2022</span></div>
+        <div class="entry-org"><b>Lycée de Yeumbeul (LEID)</b> · Dakar, Sénégal · Classé 1er de tout le centre d'examen</div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="page">
+  <div class="mini-header"><span>Mouhamadou Abdoulaye SOW</span><span>Développeur Java full-stack</span></div>
+
+  <aside>
+    <section>
+      <h3>Compétences, suite</h3>
+      <div class="skill-group"><b>Tests &amp; qualité</b>
+        <div class="chips"><span class="strong">JUnit 5</span><span class="strong">Mockito</span><span>Spring Boot Test</span><span>Postman</span><span>Tests fonctionnels</span></div></div>
+      <div class="skill-group"><b>Build, CI/CD &amp; DevOps</b>
+        <div class="chips"><span class="strong">Maven</span><span class="strong">Git</span><span class="strong">Docker</span><span class="strong">CI/CD</span><span>GitHub Actions</span><span>GitLab CI</span><span>Jenkins</span><span>Docker Compose</span><span>Kubernetes</span><span>AWS EC2, S3 &amp; ECR</span><span>Linux</span></div></div>
+      <div class="skill-group"><b>Méthodes &amp; sécurité</b>
+        <div class="chips"><span class="strong">Agile / Scrum</span><span>Jira</span><span>Confluence</span><span>UML</span><span>JWT</span><span>OAuth2</span><span>Keycloak</span><span>RBAC</span></div></div>
+    </section>
+
+    <section>
+      <h3>Qualités</h3>
+      <div class="quality"><b>Analyse &amp; résolution de problèmes</b><span>Correction d'anomalies en préproduction chez Atos, débogage de microservices distribués.</span></div>
+      <div class="quality"><b>Rigueur &amp; sens de la qualité</b><span>1er de tout le centre d'examen au baccalauréat ; code testé et documenté.</span></div>
+      <div class="quality"><b>Autonomie &amp; initiative</b><span>Projets personnels conçus, déployés et documentés de bout en bout.</span></div>
+      <div class="quality"><b>Esprit d'équipe &amp; communication</b><span>Équipes Scrum chez Atos ; vice-président Galsen AI et président du journal de l'EPT.</span></div>
+      <div class="quality"><b>Curiosité</b><span>Veille sur l'écosystème Java, Spring et les pratiques DevOps.</span></div>
+    </section>
+
+    <section>
+      <h3>Langues</h3>
+      <div class="lang"><div>Français<small>Maîtrise complète · C2</small></div><div class="dots"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="lang"><div>Anglais<small>Niveau professionnel · C1</small></div><div class="dots"><i></i><i></i><i></i><i></i><i class="off"></i></div></div>
+      <div class="lang"><div>Pulaar<small>Langue maternelle</small></div><div class="dots"><i></i><i></i><i></i><i></i><i></i></div></div>
+      <div class="lang"><div>Wolof<small>Courant</small></div><div class="dots"><i></i><i></i><i></i><i></i><i class="off"></i></div></div>
+    </section>
+
+    <section>
+      <h3>Centres d'intérêt</h3>
+      <div class="chips">
+        <span>Architecture logicielle</span><span>Clean code</span><span>Tests automatisés</span><span>Sécurité applicative</span><span>Performance</span>
+      </div>
+    </section>
+  </aside>
+
+  <main>
+    <section>
+      <h2>Projets Java sélectionnés</h2>
+
+      <div class="project">
+        <div class="entry-title">LMS Universities – Plateforme e-learning de l'EPT en microservices, déployée en ligne</div>
+        <div class="stack">Java 17 · Spring Boot · Spring Cloud Gateway · Eureka · Config Server · OpenFeign · Kafka · JPA / Hibernate · PostgreSQL · Redis · React · Docker · Jenkins · AWS</div>
+        <ul>
+          <li><b>10 services Spring Boot</b> derrière une passerelle Spring Cloud, avec découverte Eureka, configuration centralisée, appels OpenFeign et événements <b>Kafka</b>.</li>
+          <li>Une base <b>PostgreSQL</b> par service avec Spring Data JPA ; sécurité <b>Spring Security et JWT</b> avec trois rôles ; documentation OpenAPI.</li>
+          <li>Extension e-commerce en équipe : panier et commandes, <b>tests JUnit 5 et Mockito</b> du service et du contrôleur de commandes.</li>
+          <li>Build <b>Maven</b>, images <b>Docker</b> ; GitHub Actions déploie les services modifiés sur AWS EC2 et Jenkins pousse les images vers Amazon ECR.</li>
+        </ul>
+      </div>
+
+      <div class="project">
+        <div class="entry-title">MS Platform – Service d'authentification sécurisé</div>
+        <div class="stack">Java · Spring Boot · Spring Security · JWT · Spring Data JPA · PostgreSQL · Flyway · Redis · Kafka · JUnit 5 · Mockito</div>
+        Jetons JWT d'accès et de rafraîchissement, révocation par liste noire Redis, contrôle d'accès par rôles, réinitialisation du mot de passe par e-mail,
+        migrations de schéma <b>Flyway</b> et tests unitaires du service et du contrôleur avec <b>JUnit 5 et Mockito</b>.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Microcommerce – API REST de catalogue produits</div>
+        <div class="stack">Java · Spring Boot · Spring Data JPA · H2 · Bean Validation · springdoc-openapi · Maven</div>
+        Opérations CRUD et requêtes filtrées, validation des entrées, exceptions métier et documentation <b>Swagger / OpenAPI</b>.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Modules Spring Boot &amp; JPA de l'EPT</div>
+        <div class="stack">Java · JPA / Hibernate · Spring Boot · MySQL · Maven</div>
+        Mapping de relations un-à-un, un-à-plusieurs et plusieurs-à-plusieurs, héritage d'entités, listeners de cycle de vie, couche service et profils Spring.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Pipeline DevSecOps Spring Boot <span class="badge">En cours</span></div>
+        <div class="stack">Maven · JUnit · GitHub Actions · Docker · Trivy · Kubernetes</div>
+        Pipeline CI/CD qui teste, analyse le code et les dépendances, construit l'image et déploie une API Spring Boot sur Kubernetes.
+      </div>
+
+      <div class="project">
+        <div class="entry-title">Autres projets</div>
+        <div class="stack">Kubernetes · Terraform · Python · Django REST · React · Next.js · Flutter</div>
+        Déploiement d'un LLM sur Kubernetes, infrastructure AWS avec Terraform, système de recommandation hybride, marketplace SenPanier Bio et application mobile ShopVocal.
+      </div>
+    </section>
+
+    <section>
+      <h2>Engagement associatif</h2>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Vice-président – Communauté Galsen AI, section EPT</span><span class="entry-date">2023 – 2024</span></div>
+        <ul><li>Ateliers pratiques d'IA au symposium technologique de l'école et accompagnement d'étudiants vers des certifications.</li></ul>
+      </div>
+      <div class="entry">
+        <div class="entry-head"><span class="entry-title">Président – Sous-commission Journal</span><span class="entry-date">2023 – 2024</span></div>
+        <ul><li>Direction d'une équipe éditoriale et publication de deux journaux : Polybrève, trimestriel, et Polynews, annuel.</li></ul>
+      </div>
+    </section>
+  </main>
+</div>
+
+</body>
+</html>
