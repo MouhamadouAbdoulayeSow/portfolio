@@ -1,8 +1,8 @@
 """Build the two French CVs targeted at Java offers from one template.
 
 Usage: python3 cv/build_java_cv.py, then render each HTML to PDF with headless Chrome.
-- CV_Mouhamadou_Abdoulaye_SOW_Java_FR.html: Java Software Engineer, backend focus
-- CV_Mouhamadou_Abdoulaye_SOW_Java_VueJS_FR.html: Java / Vue.js developer, full-stack focus
+- CV_Mouhamadou_Abdoulaye_SOW_Java.html: Java Software Engineer, backend focus
+- CV_Mouhamadou_Abdoulaye_SOW_Java_VueJS.html: Java / Vue.js developer, full-stack focus
 The page style and contact block are taken from CV_Mouhamadou_Abdoulaye_SOW_FR.html.
 """
 from pathlib import Path
@@ -42,7 +42,7 @@ GROUPS = {
 }
 
 VARIANTS = {
-    "CV_Mouhamadou_Abdoulaye_SOW_Java_FR.html": {
+    "CV_Mouhamadou_Abdoulaye_SOW_Java.html": {
         "title": "CV – Mouhamadou Abdoulaye SOW – Ingénieur logiciel Java",
         "role": "Ingénieur logiciel Java · Spring Boot · Microservices",
         "tags": ["Java 17", "Spring Boot", "API REST", "Microservices", "JPA / Hibernate", "Docker · CI/CD"],
@@ -56,7 +56,7 @@ VARIANTS = {
       des modèles de données <b>SQL avec JPA / Hibernate</b>, je les teste avec <b>JUnit, Mockito et Testcontainers</b> et je les livre avec Maven, Docker et des pipelines CI/CD.
       Habitué au travail en équipe <b>Agile/Scrum</b>.""",
     },
-    "CV_Mouhamadou_Abdoulaye_SOW_Java_VueJS_FR.html": {
+    "CV_Mouhamadou_Abdoulaye_SOW_Java_VueJS.html": {
         "title": "CV – Mouhamadou Abdoulaye SOW – Développeur Java / Vue.js",
         "role": "Développeur Java full-stack · Spring Boot · Front-end JavaScript",
         "tags": ["Java 17", "Spring Boot", "API REST", "Vue.js 3", "JavaScript · HTML5 · CSS3", "Docker · CI/CD"],

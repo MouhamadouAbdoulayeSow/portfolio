@@ -11,7 +11,7 @@ export const en: Content = {
     email: "mamadoualassane2003@gmail.com",
     github: "https://github.com/MouhamadouAbdoulayeSow",
     linkedin: "https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/",
-    cv: "/CV_Mouhamadou_Abdoulaye_SOW_Java_FR.pdf",
+    cv: "/CV_Mouhamadou_Abdoulaye_SOW_Java.pdf",
     focus: ["Java · Spring Boot", "REST APIs & microservices", "JPA / Hibernate · SQL", "Vue.js · Angular · React", "Docker · CI/CD"],
   },
 
