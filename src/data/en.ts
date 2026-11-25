@@ -8,7 +8,7 @@ export const en: Content = {
     tagline:
       "Full-stack Java developer, intern at Atos and final-year engineering student. For two and a half years I have been building REST APIs and Spring Boot microservices, testing them and shipping them with Docker and CI/CD.",
     location: "Thiès / Dakar, Senegal",
-    email: "sowma@ept.edu.sn",
+    email: "mamadoualassane2003@gmail.com",
     github: "https://github.com/MouhamadouAbdoulayeSow",
     linkedin: "https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/",
     cv: "/CV_Mouhamadou_Abdoulaye_SOW_Java_FR.pdf",

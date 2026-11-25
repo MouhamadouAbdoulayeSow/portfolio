@@ -8,7 +8,7 @@ export const fr: Content = {
     tagline:
       "Développeur Java full-stack, stagiaire chez Atos et élève-ingénieur en dernière année. Depuis deux ans et demi, je conçois des API REST et des microservices Spring Boot, je les teste et je les livre avec Docker et la CI/CD.",
     location: "Thiès / Dakar, Sénégal",
-    email: "sowma@ept.edu.sn",
+    email: "mamadoualassane2003@gmail.com",
     github: "https://github.com/MouhamadouAbdoulayeSow",
     linkedin: "https://www.linkedin.com/in/mouhamadou-abdoulaye-sow-35466b374/",
     cv: "/CV_Mouhamadou_Abdoulaye_SOW_Java_FR.pdf",

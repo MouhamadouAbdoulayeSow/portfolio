@@ -17,6 +17,9 @@ head = base[: base.index("</style>")] + """  .quality { margin-bottom: 1.6mm; }
 <body>
 """
 contact = base[base.index("    <section>\n      <h3>Contact</h3>") : base.index("    <section>\n      <h3>Compétences techniques</h3>")]
+# Personal e-mail for job applications
+contact = contact.replace("mailto:sowma@ept.edu.sn", "mailto:mamadoualassane2003@gmail.com").replace(
+    ">sowma@ept.edu.sn<", ">mamadoualassane2003@gmail.com<")
 
 
 def chips(strong, normal):
